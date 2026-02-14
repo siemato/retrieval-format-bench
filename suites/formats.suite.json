@@ -1,0 +1,6215 @@
+{
+  "name": "formats-suite",
+  "description": "Derived from original keyed JSON inputs; adds concise per-format usage preambles for evaluating keyless JSON+CDDL retrieval behavior.",
+  "system": "You answer questions using only the provided data. If the answer is not in the data, reply exactly: NOT_FOUND",
+  "template": "DATA ({{format}}):\\n\\n{{format_preamble_block}}{{context}}\\n\\nQUESTION:\\n{{question}}\\n\\nINSTRUCTIONS:\\n- Use only the data above.\\n- Answer with only the final answer.\\n- Do not add punctuation or extra words.\\n- If the answer is not present, answer NOT_FOUND.",
+  "cases": [
+    {
+      "id": "tabular-employees",
+      "input": {
+        "employees": [
+          {
+            "id": 1,
+            "name": "Alex Fischer",
+            "email": "alex.fischer1@example.com",
+            "department": "Engineering",
+            "salary": 99607,
+            "yearsExperience": 24,
+            "active": true
+          },
+          {
+            "id": 2,
+            "name": "Sana Becker",
+            "email": "sana.becker2@example.com",
+            "department": "Sales",
+            "salary": 84143,
+            "yearsExperience": 12,
+            "active": false
+          },
+          {
+            "id": 3,
+            "name": "Luca Wolf",
+            "email": "luca.wolf3@example.com",
+            "department": "Marketing",
+            "salary": 80421,
+            "yearsExperience": 19,
+            "active": true
+          },
+          {
+            "id": 4,
+            "name": "Martin Hofmann",
+            "email": "martin.hofmann4@example.com",
+            "department": "HR",
+            "salary": 93898,
+            "yearsExperience": 4,
+            "active": false
+          },
+          {
+            "id": 5,
+            "name": "Elena Meier",
+            "email": "elena.meier5@example.com",
+            "department": "Operations",
+            "salary": 79221,
+            "yearsExperience": 18,
+            "active": true
+          },
+          {
+            "id": 6,
+            "name": "Noah Weber",
+            "email": "noah.weber6@example.com",
+            "department": "Finance",
+            "salary": 125185,
+            "yearsExperience": 18,
+            "active": true
+          },
+          {
+            "id": 7,
+            "name": "Mia Richter",
+            "email": "mia.richter7@example.com",
+            "department": "Engineering",
+            "salary": 141750,
+            "yearsExperience": 24,
+            "active": true
+          },
+          {
+            "id": 8,
+            "name": "Jonas Braun",
+            "email": "jonas.braun8@example.com",
+            "department": "Sales",
+            "salary": 141389,
+            "yearsExperience": 14,
+            "active": true
+          },
+          {
+            "id": 9,
+            "name": "Lea Schmitz",
+            "email": "lea.schmitz9@example.com",
+            "department": "Marketing",
+            "salary": 66833,
+            "yearsExperience": 5,
+            "active": true
+          },
+          {
+            "id": 10,
+            "name": "Paul Schmidt",
+            "email": "paul.schmidt10@example.com",
+            "department": "HR",
+            "salary": 55202,
+            "yearsExperience": 7,
+            "active": false
+          },
+          {
+            "id": 11,
+            "name": "Nina Koch",
+            "email": "nina.koch11@example.com",
+            "department": "Operations",
+            "salary": 87210,
+            "yearsExperience": 1,
+            "active": true
+          },
+          {
+            "id": 12,
+            "name": "Tim Schwarz",
+            "email": "tim.schwarz12@example.com",
+            "department": "Finance",
+            "salary": 48521,
+            "yearsExperience": 17,
+            "active": false
+          },
+          {
+            "id": 13,
+            "name": "Laura Schmitt",
+            "email": "laura.schmitt13@example.com",
+            "department": "Engineering",
+            "salary": 142587,
+            "yearsExperience": 14,
+            "active": true
+          },
+          {
+            "id": 14,
+            "name": "Felix Kim",
+            "email": "felix.kim14@example.com",
+            "department": "Sales",
+            "salary": 132018,
+            "yearsExperience": 6,
+            "active": true
+          },
+          {
+            "id": 15,
+            "name": "Sara Hoffmann",
+            "email": "sara.hoffmann15@example.com",
+            "department": "Marketing",
+            "salary": 68445,
+            "yearsExperience": 10,
+            "active": true
+          },
+          {
+            "id": 16,
+            "name": "David Schröder",
+            "email": "david.schroeder16@example.com",
+            "department": "HR",
+            "salary": 99333,
+            "yearsExperience": 4,
+            "active": false
+          },
+          {
+            "id": 17,
+            "name": "Anna Hartmann",
+            "email": "anna.hartmann17@example.com",
+            "department": "Operations",
+            "salary": 120770,
+            "yearsExperience": 6,
+            "active": true
+          },
+          {
+            "id": 18,
+            "name": "Max Lehmann",
+            "email": "max.lehmann18@example.com",
+            "department": "Finance",
+            "salary": 75490,
+            "yearsExperience": 17,
+            "active": true
+          },
+          {
+            "id": 19,
+            "name": "Julia Wagner",
+            "email": "julia.wagner19@example.com",
+            "department": "Engineering",
+            "salary": 88239,
+            "yearsExperience": 2,
+            "active": true
+          },
+          {
+            "id": 20,
+            "name": "Ben Klein",
+            "email": "ben.klein20@example.com",
+            "department": "Sales",
+            "salary": 110434,
+            "yearsExperience": 7,
+            "active": true
+          },
+          {
+            "id": 21,
+            "name": "Clara Krüger",
+            "email": "clara.krueger21@example.com",
+            "department": "Marketing",
+            "salary": 144096,
+            "yearsExperience": 18,
+            "active": true
+          },
+          {
+            "id": 22,
+            "name": "Leon Krause",
+            "email": "leon.krause22@example.com",
+            "department": "HR",
+            "salary": 78781,
+            "yearsExperience": 19,
+            "active": true
+          },
+          {
+            "id": 23,
+            "name": "Sophie Müller",
+            "email": "sophie.mueller23@example.com",
+            "department": "Operations",
+            "salary": 62022,
+            "yearsExperience": 2,
+            "active": false
+          },
+          {
+            "id": 24,
+            "name": "Elias Bauer",
+            "email": "elias.bauer24@example.com",
+            "department": "Finance",
+            "salary": 84495,
+            "yearsExperience": 1,
+            "active": true
+          },
+          {
+            "id": 25,
+            "name": "Emma Zimmermann",
+            "email": "emma.zimmermann25@example.com",
+            "department": "Engineering",
+            "salary": 75030,
+            "yearsExperience": 12,
+            "active": true
+          },
+          {
+            "id": 26,
+            "name": "Finn Werner",
+            "email": "finn.werner26@example.com",
+            "department": "Sales",
+            "salary": 65575,
+            "yearsExperience": 13,
+            "active": true
+          },
+          {
+            "id": 27,
+            "name": "Lena Moretti",
+            "email": "lena.moretti27@example.com",
+            "department": "Marketing",
+            "salary": 51464,
+            "yearsExperience": 2,
+            "active": true
+          },
+          {
+            "id": 28,
+            "name": "Oskar Schäfer",
+            "email": "oskar.schaefer28@example.com",
+            "department": "HR",
+            "salary": 55297,
+            "yearsExperience": 13,
+            "active": false
+          },
+          {
+            "id": 29,
+            "name": "Hannah Neumann",
+            "email": "hannah.neumann29@example.com",
+            "department": "Operations",
+            "salary": 68525,
+            "yearsExperience": 1,
+            "active": true
+          },
+          {
+            "id": 30,
+            "name": "Tom Lange",
+            "email": "tom.lange30@example.com",
+            "department": "Finance",
+            "salary": 93202,
+            "yearsExperience": 7,
+            "active": true
+          },
+          {
+            "id": 31,
+            "name": "Alex Fischer",
+            "email": "alex.fischer31@example.com",
+            "department": "Engineering",
+            "salary": 144779,
+            "yearsExperience": 4,
+            "active": true
+          },
+          {
+            "id": 32,
+            "name": "Sana Becker",
+            "email": "sana.becker32@example.com",
+            "department": "Sales",
+            "salary": 53064,
+            "yearsExperience": 1,
+            "active": true
+          },
+          {
+            "id": 33,
+            "name": "Luca Wolf",
+            "email": "luca.wolf33@example.com",
+            "department": "Marketing",
+            "salary": 87698,
+            "yearsExperience": 25,
+            "active": true
+          },
+          {
+            "id": 34,
+            "name": "Martin Hofmann",
+            "email": "martin.hofmann34@example.com",
+            "department": "HR",
+            "salary": 100158,
+            "yearsExperience": 18,
+            "active": true
+          },
+          {
+            "id": 35,
+            "name": "Elena Meier",
+            "email": "elena.meier35@example.com",
+            "department": "Operations",
+            "salary": 145775,
+            "yearsExperience": 22,
+            "active": true
+          },
+          {
+            "id": 36,
+            "name": "Noah Weber",
+            "email": "noah.weber36@example.com",
+            "department": "Finance",
+            "salary": 117949,
+            "yearsExperience": 5,
+            "active": true
+          },
+          {
+            "id": 37,
+            "name": "Mia Richter",
+            "email": "mia.richter37@example.com",
+            "department": "Engineering",
+            "salary": 66620,
+            "yearsExperience": 11,
+            "active": true
+          },
+          {
+            "id": 38,
+            "name": "Jonas Braun",
+            "email": "jonas.braun38@example.com",
+            "department": "Sales",
+            "salary": 66435,
+            "yearsExperience": 6,
+            "active": true
+          },
+          {
+            "id": 39,
+            "name": "Lea Schmitz",
+            "email": "lea.schmitz39@example.com",
+            "department": "Marketing",
+            "salary": 115401,
+            "yearsExperience": 3,
+            "active": true
+          },
+          {
+            "id": 40,
+            "name": "Paul Schmidt",
+            "email": "paul.schmidt40@example.com",
+            "department": "HR",
+            "salary": 45436,
+            "yearsExperience": 5,
+            "active": true
+          },
+          {
+            "id": 41,
+            "name": "Nina Koch",
+            "email": "nina.koch41@example.com",
+            "department": "Operations",
+            "salary": 110020,
+            "yearsExperience": 6,
+            "active": false
+          },
+          {
+            "id": 42,
+            "name": "Tim Schwarz",
+            "email": "tim.schwarz42@example.com",
+            "department": "Finance",
+            "salary": 149656,
+            "yearsExperience": 4,
+            "active": true
+          },
+          {
+            "id": 43,
+            "name": "Laura Schmitt",
+            "email": "laura.schmitt43@example.com",
+            "department": "Engineering",
+            "salary": 143307,
+            "yearsExperience": 13,
+            "active": true
+          },
+          {
+            "id": 44,
+            "name": "Felix Kim",
+            "email": "felix.kim44@example.com",
+            "department": "Sales",
+            "salary": 143494,
+            "yearsExperience": 15,
+            "active": true
+          },
+          {
+            "id": 45,
+            "name": "Sara Hoffmann",
+            "email": "sara.hoffmann45@example.com",
+            "department": "Marketing",
+            "salary": 76885,
+            "yearsExperience": 6,
+            "active": true
+          },
+          {
+            "id": 46,
+            "name": "David Schröder",
+            "email": "david.schroeder46@example.com",
+            "department": "HR",
+            "salary": 88314,
+            "yearsExperience": 6,
+            "active": true
+          },
+          {
+            "id": 47,
+            "name": "Anna Hartmann",
+            "email": "anna.hartmann47@example.com",
+            "department": "Operations",
+            "salary": 68328,
+            "yearsExperience": 19,
+            "active": true
+          },
+          {
+            "id": 48,
+            "name": "Max Lehmann",
+            "email": "max.lehmann48@example.com",
+            "department": "Finance",
+            "salary": 112930,
+            "yearsExperience": 8,
+            "active": false
+          },
+          {
+            "id": 49,
+            "name": "Julia Wagner",
+            "email": "julia.wagner49@example.com",
+            "department": "Engineering",
+            "salary": 112266,
+            "yearsExperience": 23,
+            "active": true
+          },
+          {
+            "id": 50,
+            "name": "Ben Klein",
+            "email": "ben.klein50@example.com",
+            "department": "Sales",
+            "salary": 60747,
+            "yearsExperience": 3,
+            "active": true
+          },
+          {
+            "id": 51,
+            "name": "Clara Krüger",
+            "email": "clara.krueger51@example.com",
+            "department": "Marketing",
+            "salary": 142460,
+            "yearsExperience": 7,
+            "active": true
+          },
+          {
+            "id": 52,
+            "name": "Leon Krause",
+            "email": "leon.krause52@example.com",
+            "department": "HR",
+            "salary": 119872,
+            "yearsExperience": 7,
+            "active": true
+          },
+          {
+            "id": 53,
+            "name": "Sophie Müller",
+            "email": "sophie.mueller53@example.com",
+            "department": "Operations",
+            "salary": 114594,
+            "yearsExperience": 8,
+            "active": true
+          },
+          {
+            "id": 54,
+            "name": "Elias Bauer",
+            "email": "elias.bauer54@example.com",
+            "department": "Finance",
+            "salary": 83313,
+            "yearsExperience": 5,
+            "active": true
+          },
+          {
+            "id": 55,
+            "name": "Emma Zimmermann",
+            "email": "emma.zimmermann55@example.com",
+            "department": "Engineering",
+            "salary": 135882,
+            "yearsExperience": 25,
+            "active": true
+          },
+          {
+            "id": 56,
+            "name": "Finn Werner",
+            "email": "finn.werner56@example.com",
+            "department": "Sales",
+            "salary": 149647,
+            "yearsExperience": 2,
+            "active": true
+          },
+          {
+            "id": 57,
+            "name": "Lena Moretti",
+            "email": "lena.moretti57@example.com",
+            "department": "Marketing",
+            "salary": 100951,
+            "yearsExperience": 2,
+            "active": true
+          },
+          {
+            "id": 58,
+            "name": "Oskar Schäfer",
+            "email": "oskar.schaefer58@example.com",
+            "department": "HR",
+            "salary": 112723,
+            "yearsExperience": 18,
+            "active": true
+          },
+          {
+            "id": 59,
+            "name": "Hannah Neumann",
+            "email": "hannah.neumann59@example.com",
+            "department": "Operations",
+            "salary": 127482,
+            "yearsExperience": 25,
+            "active": true
+          },
+          {
+            "id": 60,
+            "name": "Tom Lange",
+            "email": "tom.lange60@example.com",
+            "department": "Finance",
+            "salary": 93656,
+            "yearsExperience": 23,
+            "active": true
+          },
+          {
+            "id": 61,
+            "name": "Alex Fischer",
+            "email": "alex.fischer61@example.com",
+            "department": "Engineering",
+            "salary": 81035,
+            "yearsExperience": 24,
+            "active": true
+          },
+          {
+            "id": 62,
+            "name": "Sana Becker",
+            "email": "sana.becker62@example.com",
+            "department": "Sales",
+            "salary": 93324,
+            "yearsExperience": 13,
+            "active": true
+          },
+          {
+            "id": 63,
+            "name": "Luca Wolf",
+            "email": "luca.wolf63@example.com",
+            "department": "Marketing",
+            "salary": 125002,
+            "yearsExperience": 9,
+            "active": true
+          },
+          {
+            "id": 64,
+            "name": "Martin Hofmann",
+            "email": "martin.hofmann64@example.com",
+            "department": "HR",
+            "salary": 109553,
+            "yearsExperience": 16,
+            "active": true
+          },
+          {
+            "id": 65,
+            "name": "Elena Meier",
+            "email": "elena.meier65@example.com",
+            "department": "Operations",
+            "salary": 103400,
+            "yearsExperience": 1,
+            "active": true
+          },
+          {
+            "id": 66,
+            "name": "Noah Weber",
+            "email": "noah.weber66@example.com",
+            "department": "Finance",
+            "salary": 62834,
+            "yearsExperience": 1,
+            "active": true
+          },
+          {
+            "id": 67,
+            "name": "Mia Richter",
+            "email": "mia.richter67@example.com",
+            "department": "Engineering",
+            "salary": 126998,
+            "yearsExperience": 3,
+            "active": true
+          },
+          {
+            "id": 68,
+            "name": "Jonas Braun",
+            "email": "jonas.braun68@example.com",
+            "department": "Sales",
+            "salary": 123965,
+            "yearsExperience": 7,
+            "active": false
+          },
+          {
+            "id": 69,
+            "name": "Lea Schmitz",
+            "email": "lea.schmitz69@example.com",
+            "department": "Marketing",
+            "salary": 109294,
+            "yearsExperience": 6,
+            "active": true
+          },
+          {
+            "id": 70,
+            "name": "Paul Schmidt",
+            "email": "paul.schmidt70@example.com",
+            "department": "HR",
+            "salary": 72335,
+            "yearsExperience": 10,
+            "active": true
+          },
+          {
+            "id": 71,
+            "name": "Nina Koch",
+            "email": "nina.koch71@example.com",
+            "department": "Operations",
+            "salary": 95892,
+            "yearsExperience": 3,
+            "active": true
+          },
+          {
+            "id": 72,
+            "name": "Tim Schwarz",
+            "email": "tim.schwarz72@example.com",
+            "department": "Finance",
+            "salary": 93287,
+            "yearsExperience": 2,
+            "active": true
+          },
+          {
+            "id": 73,
+            "name": "Laura Schmitt",
+            "email": "laura.schmitt73@example.com",
+            "department": "Engineering",
+            "salary": 66040,
+            "yearsExperience": 3,
+            "active": true
+          },
+          {
+            "id": 74,
+            "name": "Felix Kim",
+            "email": "felix.kim74@example.com",
+            "department": "Sales",
+            "salary": 85175,
+            "yearsExperience": 8,
+            "active": true
+          },
+          {
+            "id": 75,
+            "name": "Sara Hoffmann",
+            "email": "sara.hoffmann75@example.com",
+            "department": "Marketing",
+            "salary": 71333,
+            "yearsExperience": 1,
+            "active": true
+          },
+          {
+            "id": 76,
+            "name": "David Schröder",
+            "email": "david.schroeder76@example.com",
+            "department": "HR",
+            "salary": 112370,
+            "yearsExperience": 2,
+            "active": true
+          },
+          {
+            "id": 77,
+            "name": "Anna Hartmann",
+            "email": "anna.hartmann77@example.com",
+            "department": "Operations",
+            "salary": 89699,
+            "yearsExperience": 13,
+            "active": true
+          },
+          {
+            "id": 78,
+            "name": "Max Lehmann",
+            "email": "max.lehmann78@example.com",
+            "department": "Finance",
+            "salary": 50349,
+            "yearsExperience": 8,
+            "active": true
+          },
+          {
+            "id": 79,
+            "name": "Julia Wagner",
+            "email": "julia.wagner79@example.com",
+            "department": "Engineering",
+            "salary": 64466,
+            "yearsExperience": 19,
+            "active": true
+          },
+          {
+            "id": 80,
+            "name": "Ben Klein",
+            "email": "ben.klein80@example.com",
+            "department": "Sales",
+            "salary": 119691,
+            "yearsExperience": 18,
+            "active": true
+          },
+          {
+            "id": 81,
+            "name": "Clara Krüger",
+            "email": "clara.krueger81@example.com",
+            "department": "Marketing",
+            "salary": 142156,
+            "yearsExperience": 10,
+            "active": true
+          },
+          {
+            "id": 82,
+            "name": "Leon Krause",
+            "email": "leon.krause82@example.com",
+            "department": "HR",
+            "salary": 57029,
+            "yearsExperience": 4,
+            "active": true
+          },
+          {
+            "id": 83,
+            "name": "Sophie Müller",
+            "email": "sophie.mueller83@example.com",
+            "department": "Operations",
+            "salary": 117020,
+            "yearsExperience": 17,
+            "active": true
+          },
+          {
+            "id": 84,
+            "name": "Elias Bauer",
+            "email": "elias.bauer84@example.com",
+            "department": "Finance",
+            "salary": 98757,
+            "yearsExperience": 17,
+            "active": true
+          },
+          {
+            "id": 85,
+            "name": "Emma Zimmermann",
+            "email": "emma.zimmermann85@example.com",
+            "department": "Engineering",
+            "salary": 113156,
+            "yearsExperience": 5,
+            "active": true
+          },
+          {
+            "id": 86,
+            "name": "Finn Werner",
+            "email": "finn.werner86@example.com",
+            "department": "Sales",
+            "salary": 87645,
+            "yearsExperience": 19,
+            "active": true
+          },
+          {
+            "id": 87,
+            "name": "Lena Moretti",
+            "email": "lena.moretti87@example.com",
+            "department": "Marketing",
+            "salary": 66457,
+            "yearsExperience": 15,
+            "active": true
+          },
+          {
+            "id": 88,
+            "name": "Oskar Schäfer",
+            "email": "oskar.schaefer88@example.com",
+            "department": "HR",
+            "salary": 48220,
+            "yearsExperience": 12,
+            "active": true
+          },
+          {
+            "id": 89,
+            "name": "Hannah Neumann",
+            "email": "hannah.neumann89@example.com",
+            "department": "Operations",
+            "salary": 95912,
+            "yearsExperience": 12,
+            "active": true
+          },
+          {
+            "id": 90,
+            "name": "Tom Lange",
+            "email": "tom.lange90@example.com",
+            "department": "Finance",
+            "salary": 115898,
+            "yearsExperience": 22,
+            "active": true
+          },
+          {
+            "id": 91,
+            "name": "Alex Fischer",
+            "email": "alex.fischer91@example.com",
+            "department": "Engineering",
+            "salary": 86843,
+            "yearsExperience": 16,
+            "active": true
+          },
+          {
+            "id": 92,
+            "name": "Sana Becker",
+            "email": "sana.becker92@example.com",
+            "department": "Sales",
+            "salary": 86813,
+            "yearsExperience": 11,
+            "active": true
+          },
+          {
+            "id": 93,
+            "name": "Luca Wolf",
+            "email": "luca.wolf93@example.com",
+            "department": "Marketing",
+            "salary": 84120,
+            "yearsExperience": 5,
+            "active": true
+          },
+          {
+            "id": 94,
+            "name": "Martin Hofmann",
+            "email": "martin.hofmann94@example.com",
+            "department": "HR",
+            "salary": 126596,
+            "yearsExperience": 2,
+            "active": true
+          },
+          {
+            "id": 95,
+            "name": "Elena Meier",
+            "email": "elena.meier95@example.com",
+            "department": "Operations",
+            "salary": 108723,
+            "yearsExperience": 4,
+            "active": true
+          },
+          {
+            "id": 96,
+            "name": "Noah Weber",
+            "email": "noah.weber96@example.com",
+            "department": "Finance",
+            "salary": 67821,
+            "yearsExperience": 2,
+            "active": false
+          },
+          {
+            "id": 97,
+            "name": "Mia Richter",
+            "email": "mia.richter97@example.com",
+            "department": "Engineering",
+            "salary": 85481,
+            "yearsExperience": 7,
+            "active": true
+          },
+          {
+            "id": 98,
+            "name": "Jonas Braun",
+            "email": "jonas.braun98@example.com",
+            "department": "Sales",
+            "salary": 105351,
+            "yearsExperience": 16,
+            "active": true
+          },
+          {
+            "id": 99,
+            "name": "Lea Schmitz",
+            "email": "lea.schmitz99@example.com",
+            "department": "Marketing",
+            "salary": 100490,
+            "yearsExperience": 8,
+            "active": false
+          },
+          {
+            "id": 100,
+            "name": "Paul Schmidt",
+            "email": "paul.schmidt100@example.com",
+            "department": "HR",
+            "salary": 88191,
+            "yearsExperience": 24,
+            "active": true
+          }
+        ]
+      },
+      "variants": {
+        "json": {
+          "type": "json",
+          "pretty": true
+        },
+        "json_compact": {
+          "type": "json",
+          "pretty": false
+        },
+        "yaml": {
+          "type": "yaml"
+        },
+        "toon": {
+          "type": "toon",
+          "delimiter": ","
+        },
+        "xml": {
+          "type": "xml",
+          "rootName": "dataset",
+          "pretty": true
+        },
+        "csv": {
+          "type": "csv",
+          "delimiter": ","
+        },
+        "json_cddl": {
+          "type": "cddl_json",
+          "schema": "; Keyless employees dataset schema (CDDL)\nemployee = [\n  id: uint,\n  name: tstr,\n  email: tstr,\n  department: tstr,\n  salary: uint,\n  yearsExperience: uint,\n  active: bool,\n]\n\nemployees-dataset = [* employee]",
+          "transforms": [
+            {
+              "path": "/employees/*",
+              "order": [
+                "id",
+                "name",
+                "email",
+                "department",
+                "salary",
+                "yearsExperience",
+                "active"
+              ]
+            }
+          ],
+          "compact": true,
+          "rootPath": "/employees"
+        }
+      },
+      "questions": [
+        {
+          "id": "email_id_42",
+          "question": "What is the email of the employee with id 42?",
+          "expected": "tim.schwarz42@example.com",
+          "scorer": {
+            "type": "exact",
+            "trim": true,
+            "caseInsensitive": false
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "dept_name_13",
+          "question": "Which department does the employee named \"Laura Schmitt\" work in?",
+          "expected": "Engineering",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "salary_id_7",
+          "question": "What is the salary of the employee with id 7?",
+          "expected": 141750,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "active_id_88",
+          "question": "Is the employee with id 88 active? Answer true or false.",
+          "expected": "true",
+          "scorer": {
+            "type": "exact",
+            "trim": true,
+            "caseInsensitive": true
+          },
+          "tags": [
+            "field",
+            "boolean"
+          ]
+        },
+        {
+          "id": "count_engineering",
+          "question": "How many employees are in the Engineering department?",
+          "expected": 17,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg"
+          ]
+        },
+        {
+          "id": "avg_salary_sales",
+          "question": "What is the average salary of employees in Sales, rounded to the nearest integer?",
+          "expected": 100524,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg",
+            "number"
+          ]
+        },
+        {
+          "id": "count_high_salary_active",
+          "question": "How many employees have salary greater than 120000 and are active?",
+          "expected": 20,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        },
+        {
+          "id": "count_finance_exp",
+          "question": "How many employees have more than 15 yearsExperience and are in Finance?",
+          "expected": 6,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nested-orders",
+      "input": {
+        "orders": [
+          {
+            "orderId": "ORD-0001",
+            "customer": {
+              "id": 1,
+              "name": "Alex Fischer",
+              "email": "alex.fischer1@example.com",
+              "phone": "+49-492-716707"
+            },
+            "items": [
+              {
+                "sku": "SKU-LN99NK",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 199.85
+              },
+              {
+                "sku": "SKU-AMEE9H",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 137.81
+              }
+            ],
+            "subtotal": 1350.64,
+            "tax": 108.05,
+            "total": 1458.69,
+            "status": "pending",
+            "orderDate": "2026-02-01"
+          },
+          {
+            "orderId": "ORD-0002",
+            "customer": {
+              "id": 2,
+              "name": "Sana Becker",
+              "email": "sana.becker2@example.com",
+              "phone": "+49-371-694383"
+            },
+            "items": [
+              {
+                "sku": "SKU-O5X2Z9",
+                "name": "Wireless Mouse",
+                "quantity": 3,
+                "price": 50.57
+              },
+              {
+                "sku": "SKU-6G7B68",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 57.33
+              }
+            ],
+            "subtotal": 381.03,
+            "tax": 30.48,
+            "total": 411.51,
+            "status": "processing",
+            "orderDate": "2025-11-18"
+          },
+          {
+            "orderId": "ORD-0003",
+            "customer": {
+              "id": 3,
+              "name": "Luca Wolf",
+              "email": "luca.wolf3@example.com",
+              "phone": "+49-476-350434"
+            },
+            "items": [
+              {
+                "sku": "SKU-03HUP2",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 103.7
+              },
+              {
+                "sku": "SKU-HKNYQL",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 67.7
+              },
+              {
+                "sku": "SKU-RB4VMT",
+                "name": "Laptop Stand",
+                "quantity": 5,
+                "price": 129.52
+              },
+              {
+                "sku": "SKU-XN9QOF",
+                "name": "Keyboard",
+                "quantity": 4,
+                "price": 15.33
+              }
+            ],
+            "subtotal": 1151.12,
+            "tax": 92.09,
+            "total": 1243.21,
+            "status": "shipped",
+            "orderDate": "2026-01-18"
+          },
+          {
+            "orderId": "ORD-0004",
+            "customer": {
+              "id": 4,
+              "name": "Martin Hofmann",
+              "email": "martin.hofmann4@example.com",
+              "phone": "+49-357-686898"
+            },
+            "items": [
+              {
+                "sku": "SKU-IVNIT6",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 13.13
+              }
+            ],
+            "subtotal": 65.65,
+            "tax": 5.25,
+            "total": 70.9,
+            "status": "delivered",
+            "orderDate": "2026-01-08"
+          },
+          {
+            "orderId": "ORD-0005",
+            "customer": {
+              "id": 5,
+              "name": "Elena Meier",
+              "email": "elena.meier5@example.com",
+              "phone": "+49-129-320320"
+            },
+            "items": [
+              {
+                "sku": "SKU-Z29R6S",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 84.72
+              },
+              {
+                "sku": "SKU-4K1DGH",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 112.05
+              },
+              {
+                "sku": "SKU-0Z4FYH",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 60.6
+              },
+              {
+                "sku": "SKU-A3JAWK",
+                "name": "Keyboard",
+                "quantity": 2,
+                "price": 150.49
+              }
+            ],
+            "subtotal": 1354.58,
+            "tax": 108.37,
+            "total": 1462.95,
+            "status": "cancelled",
+            "orderDate": "2025-11-19"
+          },
+          {
+            "orderId": "ORD-0006",
+            "customer": {
+              "id": 6,
+              "name": "Noah Weber",
+              "email": "noah.weber6@example.com",
+              "phone": "+49-376-251460"
+            },
+            "items": [
+              {
+                "sku": "SKU-U1CWP3",
+                "name": "Wireless Mouse",
+                "quantity": 3,
+                "price": 40.47
+              },
+              {
+                "sku": "SKU-5IXT9I",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 15.07
+              },
+              {
+                "sku": "SKU-3XO04O",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 104.78
+              },
+              {
+                "sku": "SKU-5SO0UG",
+                "name": "Keyboard",
+                "quantity": 3,
+                "price": 127.16
+              }
+            ],
+            "subtotal": 667.95,
+            "tax": 53.44,
+            "total": 721.39,
+            "status": "pending",
+            "orderDate": "2026-01-25"
+          },
+          {
+            "orderId": "ORD-0007",
+            "customer": {
+              "id": 7,
+              "name": "Mia Richter",
+              "email": "mia.richter7@example.com",
+              "phone": "+49-290-659762"
+            },
+            "items": [
+              {
+                "sku": "SKU-YIXEMN",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 154.51
+              }
+            ],
+            "subtotal": 154.51,
+            "tax": 12.36,
+            "total": 166.87,
+            "status": "processing",
+            "orderDate": "2026-02-13"
+          },
+          {
+            "orderId": "ORD-0008",
+            "customer": {
+              "id": 8,
+              "name": "Jonas Braun",
+              "email": "jonas.braun8@example.com",
+              "phone": "+49-197-453434"
+            },
+            "items": [
+              {
+                "sku": "SKU-RTWUZB",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 121.65
+              },
+              {
+                "sku": "SKU-22UPQG",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 120.38
+              },
+              {
+                "sku": "SKU-D6IJ7M",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 42.52
+              }
+            ],
+            "subtotal": 1337.71,
+            "tax": 107.02,
+            "total": 1444.73,
+            "status": "shipped",
+            "orderDate": "2025-11-16"
+          },
+          {
+            "orderId": "ORD-0009",
+            "customer": {
+              "id": 9,
+              "name": "Lea Schmitz",
+              "email": "lea.schmitz9@example.com",
+              "phone": "+49-374-321240"
+            },
+            "items": [
+              {
+                "sku": "SKU-FJOCIB",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 185.96
+              },
+              {
+                "sku": "SKU-10BLJ6",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 16.79
+              },
+              {
+                "sku": "SKU-GWEJBE",
+                "name": "Laptop Stand",
+                "quantity": 4,
+                "price": 108.16
+              }
+            ],
+            "subtotal": 685.76,
+            "tax": 54.86,
+            "total": 740.62,
+            "status": "delivered",
+            "orderDate": "2025-12-30"
+          },
+          {
+            "orderId": "ORD-0010",
+            "customer": {
+              "id": 10,
+              "name": "Paul Schmidt",
+              "email": "paul.schmidt10@example.com",
+              "phone": "+49-235-478381"
+            },
+            "items": [
+              {
+                "sku": "SKU-M8VZEV",
+                "name": "Wireless Mouse",
+                "quantity": 3,
+                "price": 192.39
+              },
+              {
+                "sku": "SKU-9K9IYB",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 40.87
+              },
+              {
+                "sku": "SKU-IJ9QQS",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 94.41
+              }
+            ],
+            "subtotal": 1023.88,
+            "tax": 81.91,
+            "total": 1105.79,
+            "status": "cancelled",
+            "orderDate": "2025-11-16"
+          },
+          {
+            "orderId": "ORD-0011",
+            "customer": {
+              "id": 11,
+              "name": "Nina Koch",
+              "email": "nina.koch11@example.com",
+              "phone": "+49-102-642679"
+            },
+            "items": [
+              {
+                "sku": "SKU-MYGG8K",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 145.17
+              },
+              {
+                "sku": "SKU-LEGG0J",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 98.14
+              },
+              {
+                "sku": "SKU-2HZQSI",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 191.48
+              }
+            ],
+            "subtotal": 1408.03,
+            "tax": 112.64,
+            "total": 1520.67,
+            "status": "pending",
+            "orderDate": "2025-12-08"
+          },
+          {
+            "orderId": "ORD-0012",
+            "customer": {
+              "id": 12,
+              "name": "Tim Schwarz",
+              "email": "tim.schwarz12@example.com",
+              "phone": "+49-633-336103"
+            },
+            "items": [
+              {
+                "sku": "SKU-JRPHUZ",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 131.03
+              },
+              {
+                "sku": "SKU-QNXYTA",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 116.05
+              }
+            ],
+            "subtotal": 1104.37,
+            "tax": 88.35,
+            "total": 1192.72,
+            "status": "processing",
+            "orderDate": "2026-01-07"
+          },
+          {
+            "orderId": "ORD-0013",
+            "customer": {
+              "id": 13,
+              "name": "Laura Schmitt",
+              "email": "laura.schmitt13@example.com",
+              "phone": "+49-828-843922"
+            },
+            "items": [
+              {
+                "sku": "SKU-G44OCW",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 95.66
+              },
+              {
+                "sku": "SKU-OE9NLI",
+                "name": "USB Cable",
+                "quantity": 2,
+                "price": 43.17
+              },
+              {
+                "sku": "SKU-GIADQH",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 43.31
+              },
+              {
+                "sku": "SKU-A4OVFB",
+                "name": "Keyboard",
+                "quantity": 3,
+                "price": 167.51
+              }
+            ],
+            "subtotal": 1014.82,
+            "tax": 81.19,
+            "total": 1096.01,
+            "status": "shipped",
+            "orderDate": "2026-02-12"
+          },
+          {
+            "orderId": "ORD-0014",
+            "customer": {
+              "id": 14,
+              "name": "Felix Kim",
+              "email": "felix.kim14@example.com",
+              "phone": "+49-762-531953"
+            },
+            "items": [
+              {
+                "sku": "SKU-EYJ2U4",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 68.72
+              }
+            ],
+            "subtotal": 68.72,
+            "tax": 5.5,
+            "total": 74.22,
+            "status": "delivered",
+            "orderDate": "2025-11-21"
+          },
+          {
+            "orderId": "ORD-0015",
+            "customer": {
+              "id": 15,
+              "name": "Sara Hoffmann",
+              "email": "sara.hoffmann15@example.com",
+              "phone": "+49-247-764392"
+            },
+            "items": [
+              {
+                "sku": "SKU-J1WOYA",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 172.01
+              },
+              {
+                "sku": "SKU-4XHRE7",
+                "name": "USB Cable",
+                "quantity": 1,
+                "price": 97.72
+              },
+              {
+                "sku": "SKU-ZU95LP",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 48.46
+              },
+              {
+                "sku": "SKU-BJHKYO",
+                "name": "Keyboard",
+                "quantity": 4,
+                "price": 152.44
+              }
+            ],
+            "subtotal": 1443.98,
+            "tax": 115.52,
+            "total": 1559.5,
+            "status": "cancelled",
+            "orderDate": "2026-01-31"
+          },
+          {
+            "orderId": "ORD-0016",
+            "customer": {
+              "id": 16,
+              "name": "David Schröder",
+              "email": "david.schroeder16@example.com",
+              "phone": "+49-292-862759"
+            },
+            "items": [
+              {
+                "sku": "SKU-206VY0",
+                "name": "Wireless Mouse",
+                "quantity": 2,
+                "price": 134.85
+              },
+              {
+                "sku": "SKU-DLGX2A",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 61.81
+              },
+              {
+                "sku": "SKU-38G721",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 68.42
+              },
+              {
+                "sku": "SKU-FKJ22B",
+                "name": "Keyboard",
+                "quantity": 1,
+                "price": 163.17
+              }
+            ],
+            "subtotal": 748.53,
+            "tax": 59.88,
+            "total": 808.41,
+            "status": "pending",
+            "orderDate": "2026-01-04"
+          },
+          {
+            "orderId": "ORD-0017",
+            "customer": {
+              "id": 17,
+              "name": "Anna Hartmann",
+              "email": "anna.hartmann17@example.com",
+              "phone": "+49-978-531996"
+            },
+            "items": [
+              {
+                "sku": "SKU-985QU1",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 168.54
+              },
+              {
+                "sku": "SKU-548FVR",
+                "name": "USB Cable",
+                "quantity": 2,
+                "price": 25.14
+              },
+              {
+                "sku": "SKU-W9T8WL",
+                "name": "Laptop Stand",
+                "quantity": 4,
+                "price": 113.32
+              }
+            ],
+            "subtotal": 1177.72,
+            "tax": 94.22,
+            "total": 1271.94,
+            "status": "processing",
+            "orderDate": "2026-01-01"
+          },
+          {
+            "orderId": "ORD-0018",
+            "customer": {
+              "id": 18,
+              "name": "Max Lehmann",
+              "email": "max.lehmann18@example.com",
+              "phone": "+49-176-207194"
+            },
+            "items": [
+              {
+                "sku": "SKU-2N1OPW",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 173.06
+              },
+              {
+                "sku": "SKU-07GBW2",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 97.26
+              },
+              {
+                "sku": "SKU-PCJXAM",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 170.98
+              },
+              {
+                "sku": "SKU-Z6LMVU",
+                "name": "Keyboard",
+                "quantity": 3,
+                "price": 164
+              }
+            ],
+            "subtotal": 1744.26,
+            "tax": 139.54,
+            "total": 1883.8,
+            "status": "shipped",
+            "orderDate": "2026-01-01"
+          },
+          {
+            "orderId": "ORD-0019",
+            "customer": {
+              "id": 19,
+              "name": "Julia Wagner",
+              "email": "julia.wagner19@example.com",
+              "phone": "+49-532-952966"
+            },
+            "items": [
+              {
+                "sku": "SKU-AOOO2L",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 160.87
+              },
+              {
+                "sku": "SKU-II37WO",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 153.64
+              }
+            ],
+            "subtotal": 1258.04,
+            "tax": 100.64,
+            "total": 1358.68,
+            "status": "delivered",
+            "orderDate": "2026-01-03"
+          },
+          {
+            "orderId": "ORD-0020",
+            "customer": {
+              "id": 20,
+              "name": "Ben Klein",
+              "email": "ben.klein20@example.com",
+              "phone": "+49-130-203294"
+            },
+            "items": [
+              {
+                "sku": "SKU-HV1V6W",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 35.48
+              },
+              {
+                "sku": "SKU-1M2NHK",
+                "name": "USB Cable",
+                "quantity": 1,
+                "price": 50.04
+              }
+            ],
+            "subtotal": 85.52,
+            "tax": 6.84,
+            "total": 92.36,
+            "status": "cancelled",
+            "orderDate": "2025-11-23"
+          },
+          {
+            "orderId": "ORD-0021",
+            "customer": {
+              "id": 1,
+              "name": "Alex Fischer",
+              "email": "alex.fischer1@example.com",
+              "phone": "+49-280-683253"
+            },
+            "items": [
+              {
+                "sku": "SKU-RJVO64",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 31.2
+              },
+              {
+                "sku": "SKU-R5VAU6",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 152.81
+              },
+              {
+                "sku": "SKU-XPBELO",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 135.05
+              }
+            ],
+            "subtotal": 624.68,
+            "tax": 49.97,
+            "total": 674.65,
+            "status": "pending",
+            "orderDate": "2025-12-29"
+          },
+          {
+            "orderId": "ORD-0022",
+            "customer": {
+              "id": 2,
+              "name": "Sana Becker",
+              "email": "sana.becker2@example.com",
+              "phone": "+49-845-406578"
+            },
+            "items": [
+              {
+                "sku": "SKU-7EFUN1",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 97.94
+              },
+              {
+                "sku": "SKU-7BG9MT",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 162.54
+              },
+              {
+                "sku": "SKU-M3VK0X",
+                "name": "Laptop Stand",
+                "quantity": 4,
+                "price": 36.02
+              },
+              {
+                "sku": "SKU-WO215T",
+                "name": "Keyboard",
+                "quantity": 2,
+                "price": 190.54
+              }
+            ],
+            "subtotal": 1110.72,
+            "tax": 88.86,
+            "total": 1199.58,
+            "status": "processing",
+            "orderDate": "2026-01-13"
+          },
+          {
+            "orderId": "ORD-0023",
+            "customer": {
+              "id": 3,
+              "name": "Luca Wolf",
+              "email": "luca.wolf3@example.com",
+              "phone": "+49-540-188210"
+            },
+            "items": [
+              {
+                "sku": "SKU-86AVR5",
+                "name": "Wireless Mouse",
+                "quantity": 2,
+                "price": 88.6
+              },
+              {
+                "sku": "SKU-1Q4GQV",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 12.27
+              }
+            ],
+            "subtotal": 214.01,
+            "tax": 17.12,
+            "total": 231.13,
+            "status": "shipped",
+            "orderDate": "2026-01-17"
+          },
+          {
+            "orderId": "ORD-0024",
+            "customer": {
+              "id": 4,
+              "name": "Martin Hofmann",
+              "email": "martin.hofmann4@example.com",
+              "phone": "+49-658-833873"
+            },
+            "items": [
+              {
+                "sku": "SKU-XIKLTZ",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 198.45
+              }
+            ],
+            "subtotal": 198.45,
+            "tax": 15.88,
+            "total": 214.33,
+            "status": "delivered",
+            "orderDate": "2025-12-10"
+          },
+          {
+            "orderId": "ORD-0025",
+            "customer": {
+              "id": 5,
+              "name": "Elena Meier",
+              "email": "elena.meier5@example.com",
+              "phone": "+49-997-830552"
+            },
+            "items": [
+              {
+                "sku": "SKU-FWYH0E",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 96.07
+              }
+            ],
+            "subtotal": 480.35,
+            "tax": 38.43,
+            "total": 518.78,
+            "status": "cancelled",
+            "orderDate": "2025-11-19"
+          },
+          {
+            "orderId": "ORD-0026",
+            "customer": {
+              "id": 6,
+              "name": "Noah Weber",
+              "email": "noah.weber6@example.com",
+              "phone": "+49-211-839918"
+            },
+            "items": [
+              {
+                "sku": "SKU-UDMP6N",
+                "name": "Wireless Mouse",
+                "quantity": 2,
+                "price": 187.1
+              },
+              {
+                "sku": "SKU-HZJXYS",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 134.31
+              }
+            ],
+            "subtotal": 1045.75,
+            "tax": 83.66,
+            "total": 1129.41,
+            "status": "pending",
+            "orderDate": "2025-11-19"
+          },
+          {
+            "orderId": "ORD-0027",
+            "customer": {
+              "id": 7,
+              "name": "Mia Richter",
+              "email": "mia.richter7@example.com",
+              "phone": "+49-907-175852"
+            },
+            "items": [
+              {
+                "sku": "SKU-GTAMRX",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 72.3
+              }
+            ],
+            "subtotal": 289.2,
+            "tax": 23.14,
+            "total": 312.34,
+            "status": "processing",
+            "orderDate": "2026-02-10"
+          },
+          {
+            "orderId": "ORD-0028",
+            "customer": {
+              "id": 8,
+              "name": "Jonas Braun",
+              "email": "jonas.braun8@example.com",
+              "phone": "+49-373-479703"
+            },
+            "items": [
+              {
+                "sku": "SKU-4A6HE7",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 94.26
+              }
+            ],
+            "subtotal": 471.3,
+            "tax": 37.7,
+            "total": 509,
+            "status": "shipped",
+            "orderDate": "2025-12-03"
+          },
+          {
+            "orderId": "ORD-0029",
+            "customer": {
+              "id": 9,
+              "name": "Lea Schmitz",
+              "email": "lea.schmitz9@example.com",
+              "phone": "+49-878-199315"
+            },
+            "items": [
+              {
+                "sku": "SKU-X1FW0E",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 153.36
+              },
+              {
+                "sku": "SKU-A7VBM0",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 187.78
+              },
+              {
+                "sku": "SKU-U9RVTA",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 111.38
+              },
+              {
+                "sku": "SKU-DYSLFF",
+                "name": "Keyboard",
+                "quantity": 2,
+                "price": 102.23
+              }
+            ],
+            "subtotal": 1408.1,
+            "tax": 112.65,
+            "total": 1520.75,
+            "status": "delivered",
+            "orderDate": "2026-01-14"
+          },
+          {
+            "orderId": "ORD-0030",
+            "customer": {
+              "id": 10,
+              "name": "Paul Schmidt",
+              "email": "paul.schmidt10@example.com",
+              "phone": "+49-634-383191"
+            },
+            "items": [
+              {
+                "sku": "SKU-YSEDGH",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 12.06
+              },
+              {
+                "sku": "SKU-OJAPML",
+                "name": "USB Cable",
+                "quantity": 1,
+                "price": 131.23
+              },
+              {
+                "sku": "SKU-EPBYWF",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 154.44
+              },
+              {
+                "sku": "SKU-84N1HM",
+                "name": "Keyboard",
+                "quantity": 3,
+                "price": 98.24
+              }
+            ],
+            "subtotal": 949.57,
+            "tax": 75.97,
+            "total": 1025.54,
+            "status": "cancelled",
+            "orderDate": "2025-12-21"
+          },
+          {
+            "orderId": "ORD-0031",
+            "customer": {
+              "id": 11,
+              "name": "Nina Koch",
+              "email": "nina.koch11@example.com",
+              "phone": "+49-929-565354"
+            },
+            "items": [
+              {
+                "sku": "SKU-X7QZ09",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 98.15
+              },
+              {
+                "sku": "SKU-AVHQR6",
+                "name": "USB Cable",
+                "quantity": 1,
+                "price": 196.37
+              },
+              {
+                "sku": "SKU-613QFY",
+                "name": "Laptop Stand",
+                "quantity": 2,
+                "price": 61.66
+              }
+            ],
+            "subtotal": 712.29,
+            "tax": 56.98,
+            "total": 769.27,
+            "status": "pending",
+            "orderDate": "2026-01-11"
+          },
+          {
+            "orderId": "ORD-0032",
+            "customer": {
+              "id": 12,
+              "name": "Tim Schwarz",
+              "email": "tim.schwarz12@example.com",
+              "phone": "+49-363-926606"
+            },
+            "items": [
+              {
+                "sku": "SKU-7UYSKV",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 13.72
+              },
+              {
+                "sku": "SKU-PKXHXM",
+                "name": "USB Cable",
+                "quantity": 2,
+                "price": 192.78
+              },
+              {
+                "sku": "SKU-JWD2WE",
+                "name": "Laptop Stand",
+                "quantity": 5,
+                "price": 57.26
+              },
+              {
+                "sku": "SKU-55FKTM",
+                "name": "Keyboard",
+                "quantity": 1,
+                "price": 108.39
+              }
+            ],
+            "subtotal": 848.85,
+            "tax": 67.91,
+            "total": 916.76,
+            "status": "processing",
+            "orderDate": "2025-11-21"
+          },
+          {
+            "orderId": "ORD-0033",
+            "customer": {
+              "id": 13,
+              "name": "Laura Schmitt",
+              "email": "laura.schmitt13@example.com",
+              "phone": "+49-960-865529"
+            },
+            "items": [
+              {
+                "sku": "SKU-82JFWE",
+                "name": "Wireless Mouse",
+                "quantity": 2,
+                "price": 51.94
+              },
+              {
+                "sku": "SKU-LIDF6L",
+                "name": "USB Cable",
+                "quantity": 1,
+                "price": 174.34
+              },
+              {
+                "sku": "SKU-UFBFSY",
+                "name": "Laptop Stand",
+                "quantity": 5,
+                "price": 75.15
+              }
+            ],
+            "subtotal": 653.97,
+            "tax": 52.32,
+            "total": 706.29,
+            "status": "shipped",
+            "orderDate": "2026-01-28"
+          },
+          {
+            "orderId": "ORD-0034",
+            "customer": {
+              "id": 14,
+              "name": "Felix Kim",
+              "email": "felix.kim14@example.com",
+              "phone": "+49-551-421931"
+            },
+            "items": [
+              {
+                "sku": "SKU-4KIFZ8",
+                "name": "Wireless Mouse",
+                "quantity": 3,
+                "price": 91.06
+              },
+              {
+                "sku": "SKU-ZYDAQR",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 83.21
+              },
+              {
+                "sku": "SKU-L010KC",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 190.01
+              },
+              {
+                "sku": "SKU-U8154N",
+                "name": "Keyboard",
+                "quantity": 1,
+                "price": 198.78
+              }
+            ],
+            "subtotal": 911.6,
+            "tax": 72.93,
+            "total": 984.53,
+            "status": "delivered",
+            "orderDate": "2026-01-15"
+          },
+          {
+            "orderId": "ORD-0035",
+            "customer": {
+              "id": 15,
+              "name": "Sara Hoffmann",
+              "email": "sara.hoffmann15@example.com",
+              "phone": "+49-623-934770"
+            },
+            "items": [
+              {
+                "sku": "SKU-8SG0EV",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 196.09
+              },
+              {
+                "sku": "SKU-H6JZEQ",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 171.64
+              },
+              {
+                "sku": "SKU-JD9HTQ",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 133.26
+              }
+            ],
+            "subtotal": 2042.34,
+            "tax": 163.39,
+            "total": 2205.73,
+            "status": "cancelled",
+            "orderDate": "2026-01-18"
+          },
+          {
+            "orderId": "ORD-0036",
+            "customer": {
+              "id": 16,
+              "name": "David Schröder",
+              "email": "david.schroeder16@example.com",
+              "phone": "+49-532-852591"
+            },
+            "items": [
+              {
+                "sku": "SKU-WKNT94",
+                "name": "Wireless Mouse",
+                "quantity": 3,
+                "price": 185.92
+              }
+            ],
+            "subtotal": 557.76,
+            "tax": 44.62,
+            "total": 602.38,
+            "status": "pending",
+            "orderDate": "2026-01-26"
+          },
+          {
+            "orderId": "ORD-0037",
+            "customer": {
+              "id": 17,
+              "name": "Anna Hartmann",
+              "email": "anna.hartmann17@example.com",
+              "phone": "+49-439-636594"
+            },
+            "items": [
+              {
+                "sku": "SKU-6D1CB8",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 46.29
+              },
+              {
+                "sku": "SKU-ZQQTF5",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 18.21
+              },
+              {
+                "sku": "SKU-OLQC7J",
+                "name": "Laptop Stand",
+                "quantity": 2,
+                "price": 85.01
+              }
+            ],
+            "subtotal": 456.1,
+            "tax": 36.49,
+            "total": 492.59,
+            "status": "processing",
+            "orderDate": "2026-01-03"
+          },
+          {
+            "orderId": "ORD-0038",
+            "customer": {
+              "id": 18,
+              "name": "Max Lehmann",
+              "email": "max.lehmann18@example.com",
+              "phone": "+49-552-763632"
+            },
+            "items": [
+              {
+                "sku": "SKU-ME7S26",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 110.94
+              },
+              {
+                "sku": "SKU-4DFEMD",
+                "name": "USB Cable",
+                "quantity": 2,
+                "price": 12.38
+              },
+              {
+                "sku": "SKU-VHUDNC",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 86.94
+              },
+              {
+                "sku": "SKU-Y0KBD9",
+                "name": "Keyboard",
+                "quantity": 5,
+                "price": 33.18
+              }
+            ],
+            "subtotal": 562.42,
+            "tax": 44.99,
+            "total": 607.41,
+            "status": "shipped",
+            "orderDate": "2025-12-12"
+          },
+          {
+            "orderId": "ORD-0039",
+            "customer": {
+              "id": 19,
+              "name": "Julia Wagner",
+              "email": "julia.wagner19@example.com",
+              "phone": "+49-771-117738"
+            },
+            "items": [
+              {
+                "sku": "SKU-ULD5SZ",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 69.7
+              },
+              {
+                "sku": "SKU-2G667Q",
+                "name": "USB Cable",
+                "quantity": 1,
+                "price": 194.49
+              },
+              {
+                "sku": "SKU-FJZIF5",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 51.78
+              },
+              {
+                "sku": "SKU-34SXJF",
+                "name": "Keyboard",
+                "quantity": 3,
+                "price": 190.64
+              }
+            ],
+            "subtotal": 1270.25,
+            "tax": 101.62,
+            "total": 1371.87,
+            "status": "delivered",
+            "orderDate": "2026-01-14"
+          },
+          {
+            "orderId": "ORD-0040",
+            "customer": {
+              "id": 20,
+              "name": "Ben Klein",
+              "email": "ben.klein20@example.com",
+              "phone": "+49-266-869978"
+            },
+            "items": [
+              {
+                "sku": "SKU-OR90I5",
+                "name": "Wireless Mouse",
+                "quantity": 2,
+                "price": 76.67
+              },
+              {
+                "sku": "SKU-8BBG1Q",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 80.71
+              },
+              {
+                "sku": "SKU-RCIHY7",
+                "name": "Laptop Stand",
+                "quantity": 4,
+                "price": 131.99
+              }
+            ],
+            "subtotal": 1084.85,
+            "tax": 86.79,
+            "total": 1171.64,
+            "status": "cancelled",
+            "orderDate": "2026-01-02"
+          },
+          {
+            "orderId": "ORD-0041",
+            "customer": {
+              "id": 1,
+              "name": "Alex Fischer",
+              "email": "alex.fischer1@example.com",
+              "phone": "+49-176-112152"
+            },
+            "items": [
+              {
+                "sku": "SKU-TP2A80",
+                "name": "Wireless Mouse",
+                "quantity": 2,
+                "price": 18.81
+              },
+              {
+                "sku": "SKU-XAP0JM",
+                "name": "USB Cable",
+                "quantity": 2,
+                "price": 38.96
+              },
+              {
+                "sku": "SKU-9C0PYJ",
+                "name": "Laptop Stand",
+                "quantity": 2,
+                "price": 136.8
+              }
+            ],
+            "subtotal": 389.14,
+            "tax": 31.13,
+            "total": 420.27,
+            "status": "pending",
+            "orderDate": "2026-01-17"
+          },
+          {
+            "orderId": "ORD-0042",
+            "customer": {
+              "id": 2,
+              "name": "Sana Becker",
+              "email": "sana.becker2@example.com",
+              "phone": "+49-169-169358"
+            },
+            "items": [
+              {
+                "sku": "SKU-WLMN23",
+                "name": "Wireless Mouse",
+                "quantity": 3,
+                "price": 195.1
+              },
+              {
+                "sku": "SKU-5CU8RK",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 68.75
+              },
+              {
+                "sku": "SKU-5M2GJV",
+                "name": "Laptop Stand",
+                "quantity": 3,
+                "price": 61.16
+              },
+              {
+                "sku": "SKU-M0CSCI",
+                "name": "Keyboard",
+                "quantity": 2,
+                "price": 41.2
+              }
+            ],
+            "subtotal": 1057.43,
+            "tax": 84.59,
+            "total": 1142.02,
+            "status": "processing",
+            "orderDate": "2025-12-28"
+          },
+          {
+            "orderId": "ORD-0043",
+            "customer": {
+              "id": 3,
+              "name": "Luca Wolf",
+              "email": "luca.wolf3@example.com",
+              "phone": "+49-980-278633"
+            },
+            "items": [
+              {
+                "sku": "SKU-S160M3",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 63.54
+              },
+              {
+                "sku": "SKU-5ACDFX",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 109.3
+              },
+              {
+                "sku": "SKU-UHYIAH",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 43.49
+              },
+              {
+                "sku": "SKU-38LJRU",
+                "name": "Keyboard",
+                "quantity": 2,
+                "price": 45.04
+              }
+            ],
+            "subtotal": 525.01,
+            "tax": 42,
+            "total": 567.01,
+            "status": "shipped",
+            "orderDate": "2026-01-27"
+          },
+          {
+            "orderId": "ORD-0044",
+            "customer": {
+              "id": 4,
+              "name": "Martin Hofmann",
+              "email": "martin.hofmann4@example.com",
+              "phone": "+49-877-103998"
+            },
+            "items": [
+              {
+                "sku": "SKU-1SZL6N",
+                "name": "Wireless Mouse",
+                "quantity": 2,
+                "price": 79.94
+              }
+            ],
+            "subtotal": 159.88,
+            "tax": 12.79,
+            "total": 172.67,
+            "status": "delivered",
+            "orderDate": "2025-11-28"
+          },
+          {
+            "orderId": "ORD-0045",
+            "customer": {
+              "id": 5,
+              "name": "Elena Meier",
+              "email": "elena.meier5@example.com",
+              "phone": "+49-148-576658"
+            },
+            "items": [
+              {
+                "sku": "SKU-I2YSJJ",
+                "name": "Wireless Mouse",
+                "quantity": 5,
+                "price": 122.98
+              },
+              {
+                "sku": "SKU-5QEQ6P",
+                "name": "USB Cable",
+                "quantity": 3,
+                "price": 87.66
+              },
+              {
+                "sku": "SKU-F2UNDG",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 74.32
+              }
+            ],
+            "subtotal": 952.2,
+            "tax": 76.18,
+            "total": 1028.38,
+            "status": "cancelled",
+            "orderDate": "2026-01-20"
+          },
+          {
+            "orderId": "ORD-0046",
+            "customer": {
+              "id": 6,
+              "name": "Noah Weber",
+              "email": "noah.weber6@example.com",
+              "phone": "+49-803-621787"
+            },
+            "items": [
+              {
+                "sku": "SKU-EX7EPR",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 196.77
+              },
+              {
+                "sku": "SKU-JXR90C",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 48.52
+              },
+              {
+                "sku": "SKU-RG24P7",
+                "name": "Laptop Stand",
+                "quantity": 1,
+                "price": 63.83
+              },
+              {
+                "sku": "SKU-EQFTMV",
+                "name": "Keyboard",
+                "quantity": 3,
+                "price": 122.85
+              }
+            ],
+            "subtotal": 1413.54,
+            "tax": 113.08,
+            "total": 1526.62,
+            "status": "pending",
+            "orderDate": "2026-02-09"
+          },
+          {
+            "orderId": "ORD-0047",
+            "customer": {
+              "id": 7,
+              "name": "Mia Richter",
+              "email": "mia.richter7@example.com",
+              "phone": "+49-418-658438"
+            },
+            "items": [
+              {
+                "sku": "SKU-4UA46F",
+                "name": "Wireless Mouse",
+                "quantity": 3,
+                "price": 155.12
+              }
+            ],
+            "subtotal": 465.36,
+            "tax": 37.23,
+            "total": 502.59,
+            "status": "processing",
+            "orderDate": "2026-02-12"
+          },
+          {
+            "orderId": "ORD-0048",
+            "customer": {
+              "id": 8,
+              "name": "Jonas Braun",
+              "email": "jonas.braun8@example.com",
+              "phone": "+49-381-588171"
+            },
+            "items": [
+              {
+                "sku": "SKU-21VOZP",
+                "name": "Wireless Mouse",
+                "quantity": 1,
+                "price": 111.01
+              }
+            ],
+            "subtotal": 111.01,
+            "tax": 8.88,
+            "total": 119.89,
+            "status": "shipped",
+            "orderDate": "2025-12-22"
+          },
+          {
+            "orderId": "ORD-0049",
+            "customer": {
+              "id": 9,
+              "name": "Lea Schmitz",
+              "email": "lea.schmitz9@example.com",
+              "phone": "+49-889-386315"
+            },
+            "items": [
+              {
+                "sku": "SKU-6RE62E",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 173.57
+              },
+              {
+                "sku": "SKU-IHFR7I",
+                "name": "USB Cable",
+                "quantity": 4,
+                "price": 14.34
+              }
+            ],
+            "subtotal": 751.64,
+            "tax": 60.13,
+            "total": 811.77,
+            "status": "delivered",
+            "orderDate": "2026-01-30"
+          },
+          {
+            "orderId": "ORD-0050",
+            "customer": {
+              "id": 10,
+              "name": "Paul Schmidt",
+              "email": "paul.schmidt10@example.com",
+              "phone": "+49-395-985293"
+            },
+            "items": [
+              {
+                "sku": "SKU-Z347CZ",
+                "name": "Wireless Mouse",
+                "quantity": 4,
+                "price": 22.52
+              },
+              {
+                "sku": "SKU-TN7HOX",
+                "name": "USB Cable",
+                "quantity": 5,
+                "price": 38.18
+              },
+              {
+                "sku": "SKU-G55H91",
+                "name": "Laptop Stand",
+                "quantity": 4,
+                "price": 176.97
+              },
+              {
+                "sku": "SKU-PD5OM4",
+                "name": "Keyboard",
+                "quantity": 4,
+                "price": 32.74
+              }
+            ],
+            "subtotal": 1119.82,
+            "tax": 89.59,
+            "total": 1209.41,
+            "status": "cancelled",
+            "orderDate": "2026-01-31"
+          }
+        ]
+      },
+      "variants": {
+        "json": {
+          "type": "json",
+          "pretty": true
+        },
+        "json_compact": {
+          "type": "json",
+          "pretty": false
+        },
+        "yaml": {
+          "type": "yaml"
+        },
+        "toon": {
+          "type": "toon",
+          "delimiter": ","
+        },
+        "xml": {
+          "type": "xml",
+          "rootName": "dataset",
+          "pretty": true
+        },
+        "csv": {
+          "type": "csv",
+          "delimiter": ","
+        },
+        "json_cddl": {
+          "type": "cddl_json",
+          "schema": "; Keyless orders dataset schema (CDDL)\ncustomer = [\n  id: uint,\n  name: tstr,\n  email: tstr,\n  phone: tstr,\n]\n\nitem = [\n  sku: tstr,\n  name: tstr,\n  quantity: uint,\n  price: float,\n]\n\norder = [\n  orderId: tstr,\n  customer: customer,\n  items: [* item],\n  subtotal: float,\n  tax: float,\n  total: float,\n  status: tstr,\n  orderDate: tstr,\n]\n\norders-dataset = [* order]",
+          "transforms": [
+            {
+              "path": "/orders/*/items/*",
+              "order": [
+                "sku",
+                "name",
+                "quantity",
+                "price"
+              ]
+            },
+            {
+              "path": "/orders/*/customer",
+              "order": [
+                "id",
+                "name",
+                "email",
+                "phone"
+              ]
+            },
+            {
+              "path": "/orders/*",
+              "order": [
+                "orderId",
+                "customer",
+                "items",
+                "subtotal",
+                "tax",
+                "total",
+                "status",
+                "orderDate"
+              ]
+            }
+          ],
+          "compact": true,
+          "rootPath": "/orders"
+        }
+      },
+      "questions": [
+        {
+          "id": "status_ord_0025",
+          "question": "What is the status of order ORD-0025?",
+          "expected": "cancelled",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "total_ord_0010",
+          "question": "What is the total amount of order ORD-0010? Answer as a number.",
+          "expected": 1105.79,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0.01
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "customer_name_ord_0033",
+          "question": "What is the customer name for order ORD-0033?",
+          "expected": "Laura Schmitt",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "item_count_ord_0040",
+          "question": "How many line items are in order ORD-0040?",
+          "expected": 3,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "count_shipped",
+          "question": "How many orders have status \"shipped\"?",
+          "expected": 10,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg"
+          ]
+        },
+        {
+          "id": "sum_total_all",
+          "question": "What is the sum of total across all orders, rounded to 2 decimals? Answer as a number.",
+          "expected": 44349.58,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0.01
+          },
+          "tags": [
+            "agg",
+            "number"
+          ]
+        },
+        {
+          "id": "count_delivered_gt_400",
+          "question": "How many orders have total greater than 400 and status \"delivered\"?",
+          "expected": 6,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        },
+        {
+          "id": "count_orders_with_webcam",
+          "question": "How many orders contain an item with name \"Webcam\"?",
+          "expected": 0,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "analytics-metrics",
+      "input": {
+        "metrics": [
+          {
+            "date": "2025-01-01",
+            "views": 5373,
+            "clicks": 399,
+            "conversions": 23,
+            "revenue": 5298.32,
+            "bounceRate": 0.31
+          },
+          {
+            "date": "2025-01-02",
+            "views": 7501,
+            "clicks": 418,
+            "conversions": 34,
+            "revenue": 7002.55,
+            "bounceRate": 0.42
+          },
+          {
+            "date": "2025-01-03",
+            "views": 4521,
+            "clicks": 361,
+            "conversions": 29,
+            "revenue": 7525.47,
+            "bounceRate": 0.36
+          },
+          {
+            "date": "2025-01-04",
+            "views": 2650,
+            "clicks": 143,
+            "conversions": 19,
+            "revenue": 3007.91,
+            "bounceRate": 0.5
+          },
+          {
+            "date": "2025-01-05",
+            "views": 3784,
+            "clicks": 106,
+            "conversions": 9,
+            "revenue": 1617.16,
+            "bounceRate": 0.4
+          },
+          {
+            "date": "2025-01-06",
+            "views": 4517,
+            "clicks": 353,
+            "conversions": 38,
+            "revenue": 9301.92,
+            "bounceRate": 0.58
+          },
+          {
+            "date": "2025-01-07",
+            "views": 6016,
+            "clicks": 131,
+            "conversions": 13,
+            "revenue": 1679.83,
+            "bounceRate": 0.32
+          },
+          {
+            "date": "2025-01-08",
+            "views": 4090,
+            "clicks": 257,
+            "conversions": 16,
+            "revenue": 2898.7,
+            "bounceRate": 0.51
+          },
+          {
+            "date": "2025-01-09",
+            "views": 6214,
+            "clicks": 156,
+            "conversions": 15,
+            "revenue": 3811.9,
+            "bounceRate": 0.38
+          },
+          {
+            "date": "2025-01-10",
+            "views": 5903,
+            "clicks": 346,
+            "conversions": 30,
+            "revenue": 1813.99,
+            "bounceRate": 0.5
+          },
+          {
+            "date": "2025-01-11",
+            "views": 4783,
+            "clicks": 174,
+            "conversions": 22,
+            "revenue": 5872.46,
+            "bounceRate": 0.42
+          },
+          {
+            "date": "2025-01-12",
+            "views": 4184,
+            "clicks": 261,
+            "conversions": 31,
+            "revenue": 5391.61,
+            "bounceRate": 0.68
+          },
+          {
+            "date": "2025-01-13",
+            "views": 7929,
+            "clicks": 432,
+            "conversions": 58,
+            "revenue": 11174.8,
+            "bounceRate": 0.57
+          },
+          {
+            "date": "2025-01-14",
+            "views": 6272,
+            "clicks": 423,
+            "conversions": 32,
+            "revenue": 3100.58,
+            "bounceRate": 0.53
+          },
+          {
+            "date": "2025-01-15",
+            "views": 6756,
+            "clicks": 263,
+            "conversions": 37,
+            "revenue": 10755.42,
+            "bounceRate": 0.69
+          },
+          {
+            "date": "2025-01-16",
+            "views": 6231,
+            "clicks": 466,
+            "conversions": 64,
+            "revenue": 17761.1,
+            "bounceRate": 0.52
+          },
+          {
+            "date": "2025-01-17",
+            "views": 5289,
+            "clicks": 380,
+            "conversions": 49,
+            "revenue": 8820.76,
+            "bounceRate": 0.49
+          },
+          {
+            "date": "2025-01-18",
+            "views": 5513,
+            "clicks": 369,
+            "conversions": 33,
+            "revenue": 4445.31,
+            "bounceRate": 0.66
+          },
+          {
+            "date": "2025-01-19",
+            "views": 2701,
+            "clicks": 190,
+            "conversions": 21,
+            "revenue": 3934.77,
+            "bounceRate": 0.63
+          },
+          {
+            "date": "2025-01-20",
+            "views": 5829,
+            "clicks": 444,
+            "conversions": 66,
+            "revenue": 18460.8,
+            "bounceRate": 0.65
+          },
+          {
+            "date": "2025-01-21",
+            "views": 7867,
+            "clicks": 250,
+            "conversions": 30,
+            "revenue": 3666.06,
+            "bounceRate": 0.34
+          },
+          {
+            "date": "2025-01-22",
+            "views": 4540,
+            "clicks": 199,
+            "conversions": 25,
+            "revenue": 6933.91,
+            "bounceRate": 0.37
+          },
+          {
+            "date": "2025-01-23",
+            "views": 6687,
+            "clicks": 310,
+            "conversions": 21,
+            "revenue": 4699.71,
+            "bounceRate": 0.42
+          },
+          {
+            "date": "2025-01-24",
+            "views": 4185,
+            "clicks": 253,
+            "conversions": 19,
+            "revenue": 1436.55,
+            "bounceRate": 0.63
+          },
+          {
+            "date": "2025-01-25",
+            "views": 6132,
+            "clicks": 240,
+            "conversions": 28,
+            "revenue": 3595.14,
+            "bounceRate": 0.58
+          },
+          {
+            "date": "2025-01-26",
+            "views": 2687,
+            "clicks": 109,
+            "conversions": 13,
+            "revenue": 2706.35,
+            "bounceRate": 0.46
+          },
+          {
+            "date": "2025-01-27",
+            "views": 7196,
+            "clicks": 464,
+            "conversions": 38,
+            "revenue": 2753.35,
+            "bounceRate": 0.56
+          },
+          {
+            "date": "2025-01-28",
+            "views": 5738,
+            "clicks": 352,
+            "conversions": 31,
+            "revenue": 7979.93,
+            "bounceRate": 0.38
+          },
+          {
+            "date": "2025-01-29",
+            "views": 7915,
+            "clicks": 256,
+            "conversions": 19,
+            "revenue": 3866.3,
+            "bounceRate": 0.41
+          },
+          {
+            "date": "2025-01-30",
+            "views": 5993,
+            "clicks": 146,
+            "conversions": 21,
+            "revenue": 5747.31,
+            "bounceRate": 0.65
+          },
+          {
+            "date": "2025-01-31",
+            "views": 4424,
+            "clicks": 304,
+            "conversions": 39,
+            "revenue": 2938.43,
+            "bounceRate": 0.58
+          },
+          {
+            "date": "2025-02-01",
+            "views": 6102,
+            "clicks": 152,
+            "conversions": 8,
+            "revenue": 1104.03,
+            "bounceRate": 0.46
+          },
+          {
+            "date": "2025-02-02",
+            "views": 5079,
+            "clicks": 224,
+            "conversions": 24,
+            "revenue": 5165.76,
+            "bounceRate": 0.7
+          },
+          {
+            "date": "2025-02-03",
+            "views": 4612,
+            "clicks": 276,
+            "conversions": 27,
+            "revenue": 7115.64,
+            "bounceRate": 0.55
+          },
+          {
+            "date": "2025-02-04",
+            "views": 4771,
+            "clicks": 257,
+            "conversions": 14,
+            "revenue": 1225.83,
+            "bounceRate": 0.32
+          },
+          {
+            "date": "2025-02-05",
+            "views": 7463,
+            "clicks": 151,
+            "conversions": 20,
+            "revenue": 3997.04,
+            "bounceRate": 0.54
+          },
+          {
+            "date": "2025-02-06",
+            "views": 6184,
+            "clicks": 151,
+            "conversions": 8,
+            "revenue": 743.86,
+            "bounceRate": 0.53
+          },
+          {
+            "date": "2025-02-07",
+            "views": 5449,
+            "clicks": 348,
+            "conversions": 43,
+            "revenue": 3208.64,
+            "bounceRate": 0.57
+          },
+          {
+            "date": "2025-02-08",
+            "views": 2721,
+            "clicks": 171,
+            "conversions": 9,
+            "revenue": 2328.83,
+            "bounceRate": 0.34
+          },
+          {
+            "date": "2025-02-09",
+            "views": 4137,
+            "clicks": 244,
+            "conversions": 36,
+            "revenue": 9436.9,
+            "bounceRate": 0.31
+          },
+          {
+            "date": "2025-02-10",
+            "views": 4226,
+            "clicks": 259,
+            "conversions": 33,
+            "revenue": 9643.2,
+            "bounceRate": 0.66
+          },
+          {
+            "date": "2025-02-11",
+            "views": 5231,
+            "clicks": 184,
+            "conversions": 26,
+            "revenue": 2480.61,
+            "bounceRate": 0.64
+          },
+          {
+            "date": "2025-02-12",
+            "views": 5203,
+            "clicks": 388,
+            "conversions": 42,
+            "revenue": 10305.25,
+            "bounceRate": 0.41
+          },
+          {
+            "date": "2025-02-13",
+            "views": 7459,
+            "clicks": 177,
+            "conversions": 24,
+            "revenue": 2385.26,
+            "bounceRate": 0.33
+          },
+          {
+            "date": "2025-02-14",
+            "views": 7167,
+            "clicks": 344,
+            "conversions": 46,
+            "revenue": 10976.78,
+            "bounceRate": 0.51
+          },
+          {
+            "date": "2025-02-15",
+            "views": 6119,
+            "clicks": 482,
+            "conversions": 27,
+            "revenue": 6114.04,
+            "bounceRate": 0.5
+          },
+          {
+            "date": "2025-02-16",
+            "views": 3791,
+            "clicks": 106,
+            "conversions": 14,
+            "revenue": 3112.32,
+            "bounceRate": 0.43
+          },
+          {
+            "date": "2025-02-17",
+            "views": 7306,
+            "clicks": 149,
+            "conversions": 10,
+            "revenue": 876.86,
+            "bounceRate": 0.65
+          },
+          {
+            "date": "2025-02-18",
+            "views": 7114,
+            "clicks": 373,
+            "conversions": 23,
+            "revenue": 3675.22,
+            "bounceRate": 0.42
+          },
+          {
+            "date": "2025-02-19",
+            "views": 7927,
+            "clicks": 467,
+            "conversions": 28,
+            "revenue": 5484.52,
+            "bounceRate": 0.69
+          },
+          {
+            "date": "2025-02-20",
+            "views": 6913,
+            "clicks": 171,
+            "conversions": 20,
+            "revenue": 5669.02,
+            "bounceRate": 0.53
+          },
+          {
+            "date": "2025-02-21",
+            "views": 5135,
+            "clicks": 216,
+            "conversions": 28,
+            "revenue": 3391.66,
+            "bounceRate": 0.59
+          },
+          {
+            "date": "2025-02-22",
+            "views": 2502,
+            "clicks": 133,
+            "conversions": 12,
+            "revenue": 3243.56,
+            "bounceRate": 0.33
+          },
+          {
+            "date": "2025-02-23",
+            "views": 4404,
+            "clicks": 303,
+            "conversions": 30,
+            "revenue": 2899.57,
+            "bounceRate": 0.44
+          },
+          {
+            "date": "2025-02-24",
+            "views": 5715,
+            "clicks": 235,
+            "conversions": 24,
+            "revenue": 3884.47,
+            "bounceRate": 0.32
+          },
+          {
+            "date": "2025-02-25",
+            "views": 5350,
+            "clicks": 152,
+            "conversions": 17,
+            "revenue": 965.73,
+            "bounceRate": 0.4
+          },
+          {
+            "date": "2025-02-26",
+            "views": 4380,
+            "clicks": 165,
+            "conversions": 9,
+            "revenue": 2433.17,
+            "bounceRate": 0.33
+          },
+          {
+            "date": "2025-02-27",
+            "views": 4999,
+            "clicks": 316,
+            "conversions": 22,
+            "revenue": 3969.05,
+            "bounceRate": 0.7
+          },
+          {
+            "date": "2025-02-28",
+            "views": 6539,
+            "clicks": 491,
+            "conversions": 53,
+            "revenue": 14860.33,
+            "bounceRate": 0.33
+          },
+          {
+            "date": "2025-03-01",
+            "views": 4627,
+            "clicks": 265,
+            "conversions": 36,
+            "revenue": 6231.14,
+            "bounceRate": 0.56
+          }
+        ]
+      },
+      "variants": {
+        "json": {
+          "type": "json",
+          "pretty": true
+        },
+        "json_compact": {
+          "type": "json",
+          "pretty": false
+        },
+        "yaml": {
+          "type": "yaml"
+        },
+        "toon": {
+          "type": "toon",
+          "delimiter": ","
+        },
+        "xml": {
+          "type": "xml",
+          "rootName": "dataset",
+          "pretty": true
+        },
+        "csv": {
+          "type": "csv",
+          "delimiter": ","
+        },
+        "json_cddl": {
+          "type": "cddl_json",
+          "schema": "; Keyless analytics dataset schema (CDDL)\nmetric = [\n  date: tstr,\n  views: uint,\n  clicks: uint,\n  conversions: uint,\n  revenue: float,\n  bounceRate: float,\n]\n\nmetrics-dataset = [* metric]",
+          "transforms": [
+            {
+              "path": "/metrics/*",
+              "order": [
+                "date",
+                "views",
+                "clicks",
+                "conversions",
+                "revenue",
+                "bounceRate"
+              ]
+            }
+          ],
+          "compact": true,
+          "rootPath": "/metrics"
+        }
+      },
+      "questions": [
+        {
+          "id": "views_2025_01_15",
+          "question": "What are the views for 2025-01-15?",
+          "expected": 6756,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "revenue_2025_02_10",
+          "question": "What is the revenue for 2025-02-10? Answer as a number.",
+          "expected": 9643.2,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0.01
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "bounce_2025_01_07",
+          "question": "What is the bounceRate for 2025-01-07? Answer as a number.",
+          "expected": 0.32,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0.01
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "conv_2025_01_30",
+          "question": "How many conversions were there on 2025-01-30?",
+          "expected": 21,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "days_count",
+          "question": "How many days of data are in the metrics dataset?",
+          "expected": 60,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg"
+          ]
+        },
+        {
+          "id": "total_views",
+          "question": "What is the total number of views across all dates?",
+          "expected": 328045,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg",
+            "number"
+          ]
+        },
+        {
+          "id": "count_days_views_gt_6000",
+          "question": "How many days had more than 6000 views?",
+          "expected": 23,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        },
+        {
+          "id": "count_days_views_gt_7000_conv_gt_15",
+          "question": "How many days had more than 7000 views and more than 15 conversions?",
+          "expected": 10,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github-repos",
+      "input": {
+        "repositories": [
+          {
+            "id": 1,
+            "name": "project-1",
+            "repo": "org1/project-1",
+            "description": "project-1 is a library for ML workflows.",
+            "stars": 217437,
+            "watchers": 6569,
+            "forks": 40850,
+            "defaultBranch": "main",
+            "createdAt": "2022-12-07",
+            "updatedAt": "2026-08-28",
+            "pushedAt": "2024-08-26"
+          },
+          {
+            "id": 2,
+            "name": "project-2",
+            "repo": "org2/project-2",
+            "description": "project-2 is a library for observability.",
+            "stars": 47803,
+            "watchers": 1039,
+            "forks": 3170,
+            "defaultBranch": "main",
+            "createdAt": "2019-02-02",
+            "updatedAt": "2026-06-15",
+            "pushedAt": "2026-12-27"
+          },
+          {
+            "id": 3,
+            "name": "project-3",
+            "repo": "org3/project-3",
+            "description": "project-3 is a library for web apps.",
+            "stars": 7690,
+            "watchers": 234,
+            "forks": 1800,
+            "defaultBranch": "main",
+            "createdAt": "2015-11-24",
+            "updatedAt": "2026-05-23",
+            "pushedAt": "2026-12-11"
+          },
+          {
+            "id": 4,
+            "name": "project-4",
+            "repo": "org4/project-4",
+            "description": "project-4 is a library for observability.",
+            "stars": 9741,
+            "watchers": 414,
+            "forks": 1380,
+            "defaultBranch": "main",
+            "createdAt": "2022-04-26",
+            "updatedAt": "2025-08-02",
+            "pushedAt": "2024-09-27"
+          },
+          {
+            "id": 5,
+            "name": "project-5",
+            "repo": "org5/project-5",
+            "description": "project-5 is a library for dev tools.",
+            "stars": 96378,
+            "watchers": 6578,
+            "forks": 6636,
+            "defaultBranch": "main",
+            "createdAt": "2023-11-17",
+            "updatedAt": "2026-09-02",
+            "pushedAt": "2026-09-16"
+          },
+          {
+            "id": 6,
+            "name": "project-6",
+            "repo": "org6/project-6",
+            "description": "project-6 is a library for web apps.",
+            "stars": 225719,
+            "watchers": 6986,
+            "forks": 9115,
+            "defaultBranch": "main",
+            "createdAt": "2019-12-08",
+            "updatedAt": "2025-11-19",
+            "pushedAt": "2024-03-05"
+          },
+          {
+            "id": 7,
+            "name": "project-7",
+            "repo": "org7/project-7",
+            "description": "project-7 is a library for ML workflows.",
+            "stars": 23731,
+            "watchers": 371,
+            "forks": 739,
+            "defaultBranch": "main",
+            "createdAt": "2015-05-22",
+            "updatedAt": "2024-01-26",
+            "pushedAt": "2024-08-07"
+          },
+          {
+            "id": 8,
+            "name": "project-8",
+            "repo": "org1/project-8",
+            "description": "project-8 is a library for observability.",
+            "stars": 204088,
+            "watchers": 2949,
+            "forks": 28269,
+            "defaultBranch": "master",
+            "createdAt": "2021-03-16",
+            "updatedAt": "2025-09-09",
+            "pushedAt": "2025-11-11"
+          },
+          {
+            "id": 9,
+            "name": "project-9",
+            "repo": "org2/project-9",
+            "description": "project-9 is a library for ML workflows.",
+            "stars": 49280,
+            "watchers": 1388,
+            "forks": 10301,
+            "defaultBranch": "main",
+            "createdAt": "2015-10-24",
+            "updatedAt": "2026-10-15",
+            "pushedAt": "2025-11-08"
+          },
+          {
+            "id": 10,
+            "name": "project-10",
+            "repo": "org3/project-10",
+            "description": "project-10 is a library for dev tools.",
+            "stars": 136645,
+            "watchers": 5701,
+            "forks": 32672,
+            "defaultBranch": "main",
+            "createdAt": "2022-07-17",
+            "updatedAt": "2026-01-04",
+            "pushedAt": "2026-08-28"
+          },
+          {
+            "id": 11,
+            "name": "project-11",
+            "repo": "org4/project-11",
+            "description": "project-11 is a library for APIs.",
+            "stars": 170543,
+            "watchers": 2194,
+            "forks": 35724,
+            "defaultBranch": "main",
+            "createdAt": "2014-12-14",
+            "updatedAt": "2024-10-08",
+            "pushedAt": "2024-09-23"
+          },
+          {
+            "id": 12,
+            "name": "project-12",
+            "repo": "org5/project-12",
+            "description": "project-12 is a library for ML workflows.",
+            "stars": 35310,
+            "watchers": 1744,
+            "forks": 2293,
+            "defaultBranch": "main",
+            "createdAt": "2014-08-14",
+            "updatedAt": "2026-10-14",
+            "pushedAt": "2025-03-22"
+          },
+          {
+            "id": 13,
+            "name": "project-13",
+            "repo": "org6/project-13",
+            "description": "project-13 is a library for data pipelines.",
+            "stars": 123744,
+            "watchers": 7900,
+            "forks": 18321,
+            "defaultBranch": "main",
+            "createdAt": "2022-04-14",
+            "updatedAt": "2026-06-17",
+            "pushedAt": "2024-12-19"
+          },
+          {
+            "id": 14,
+            "name": "project-14",
+            "repo": "org7/project-14",
+            "description": "project-14 is a library for web apps.",
+            "stars": 184655,
+            "watchers": 3427,
+            "forks": 36275,
+            "defaultBranch": "main",
+            "createdAt": "2014-06-23",
+            "updatedAt": "2026-11-16",
+            "pushedAt": "2026-12-11"
+          },
+          {
+            "id": 15,
+            "name": "project-15",
+            "repo": "org1/project-15",
+            "description": "project-15 is a library for observability.",
+            "stars": 40152,
+            "watchers": 3097,
+            "forks": 1997,
+            "defaultBranch": "master",
+            "createdAt": "2021-03-28",
+            "updatedAt": "2024-09-22",
+            "pushedAt": "2024-03-10"
+          },
+          {
+            "id": 16,
+            "name": "project-16",
+            "repo": "org2/project-16",
+            "description": "project-16 is a library for dev tools.",
+            "stars": 27382,
+            "watchers": 1749,
+            "forks": 3204,
+            "defaultBranch": "main",
+            "createdAt": "2017-09-03",
+            "updatedAt": "2024-10-11",
+            "pushedAt": "2024-04-06"
+          },
+          {
+            "id": 17,
+            "name": "project-17",
+            "repo": "org3/project-17",
+            "description": "project-17 is a library for ML workflows.",
+            "stars": 188157,
+            "watchers": 7515,
+            "forks": 25116,
+            "defaultBranch": "master",
+            "createdAt": "2019-10-13",
+            "updatedAt": "2025-10-19",
+            "pushedAt": "2025-05-04"
+          },
+          {
+            "id": 18,
+            "name": "project-18",
+            "repo": "org4/project-18",
+            "description": "project-18 is a library for ML workflows.",
+            "stars": 225779,
+            "watchers": 12710,
+            "forks": 16699,
+            "defaultBranch": "main",
+            "createdAt": "2019-01-02",
+            "updatedAt": "2026-02-21",
+            "pushedAt": "2024-01-23"
+          },
+          {
+            "id": 19,
+            "name": "project-19",
+            "repo": "org5/project-19",
+            "description": "project-19 is a library for ML workflows.",
+            "stars": 2578,
+            "watchers": 196,
+            "forks": 540,
+            "defaultBranch": "main",
+            "createdAt": "2020-05-20",
+            "updatedAt": "2024-09-19",
+            "pushedAt": "2026-03-18"
+          },
+          {
+            "id": 20,
+            "name": "project-20",
+            "repo": "org6/project-20",
+            "description": "project-20 is a library for dev tools.",
+            "stars": 56376,
+            "watchers": 832,
+            "forks": 10506,
+            "defaultBranch": "main",
+            "createdAt": "2023-06-04",
+            "updatedAt": "2025-08-16",
+            "pushedAt": "2026-03-08"
+          },
+          {
+            "id": 21,
+            "name": "project-21",
+            "repo": "org7/project-21",
+            "description": "project-21 is a library for data pipelines.",
+            "stars": 198273,
+            "watchers": 14880,
+            "forks": 32634,
+            "defaultBranch": "main",
+            "createdAt": "2022-11-15",
+            "updatedAt": "2025-02-17",
+            "pushedAt": "2026-07-02"
+          },
+          {
+            "id": 22,
+            "name": "project-22",
+            "repo": "org1/project-22",
+            "description": "project-22 is a library for APIs.",
+            "stars": 123322,
+            "watchers": 4035,
+            "forks": 28752,
+            "defaultBranch": "main",
+            "createdAt": "2015-08-20",
+            "updatedAt": "2026-05-10",
+            "pushedAt": "2026-05-21"
+          },
+          {
+            "id": 23,
+            "name": "project-23",
+            "repo": "org2/project-23",
+            "description": "project-23 is a library for observability.",
+            "stars": 189844,
+            "watchers": 2184,
+            "forks": 9920,
+            "defaultBranch": "main",
+            "createdAt": "2021-05-19",
+            "updatedAt": "2026-01-21",
+            "pushedAt": "2026-05-02"
+          },
+          {
+            "id": 24,
+            "name": "project-24",
+            "repo": "org3/project-24",
+            "description": "project-24 is a library for web apps.",
+            "stars": 4416,
+            "watchers": 149,
+            "forks": 111,
+            "defaultBranch": "master",
+            "createdAt": "2021-01-17",
+            "updatedAt": "2025-10-23",
+            "pushedAt": "2026-02-06"
+          },
+          {
+            "id": 25,
+            "name": "project-25",
+            "repo": "org4/project-25",
+            "description": "project-25 is a library for APIs.",
+            "stars": 154067,
+            "watchers": 10911,
+            "forks": 26599,
+            "defaultBranch": "main",
+            "createdAt": "2022-06-04",
+            "updatedAt": "2024-08-14",
+            "pushedAt": "2026-09-05"
+          },
+          {
+            "id": 26,
+            "name": "project-26",
+            "repo": "org5/project-26",
+            "description": "project-26 is a library for APIs.",
+            "stars": 7820,
+            "watchers": 561,
+            "forks": 649,
+            "defaultBranch": "master",
+            "createdAt": "2019-03-21",
+            "updatedAt": "2024-07-09",
+            "pushedAt": "2025-05-22"
+          },
+          {
+            "id": 27,
+            "name": "project-27",
+            "repo": "org6/project-27",
+            "description": "project-27 is a library for APIs.",
+            "stars": 18401,
+            "watchers": 1416,
+            "forks": 3554,
+            "defaultBranch": "master",
+            "createdAt": "2022-08-08",
+            "updatedAt": "2025-04-12",
+            "pushedAt": "2025-09-11"
+          },
+          {
+            "id": 28,
+            "name": "project-28",
+            "repo": "org7/project-28",
+            "description": "project-28 is a library for dev tools.",
+            "stars": 108433,
+            "watchers": 4344,
+            "forks": 6982,
+            "defaultBranch": "master",
+            "createdAt": "2019-11-16",
+            "updatedAt": "2024-08-03",
+            "pushedAt": "2024-06-24"
+          },
+          {
+            "id": 29,
+            "name": "project-29",
+            "repo": "org1/project-29",
+            "description": "project-29 is a library for data pipelines.",
+            "stars": 229187,
+            "watchers": 13094,
+            "forks": 19917,
+            "defaultBranch": "main",
+            "createdAt": "2020-05-23",
+            "updatedAt": "2024-01-09",
+            "pushedAt": "2025-07-14"
+          },
+          {
+            "id": 30,
+            "name": "project-30",
+            "repo": "org2/project-30",
+            "description": "project-30 is a library for data pipelines.",
+            "stars": 7607,
+            "watchers": 552,
+            "forks": 1625,
+            "defaultBranch": "main",
+            "createdAt": "2021-05-19",
+            "updatedAt": "2026-12-15",
+            "pushedAt": "2025-12-08"
+          },
+          {
+            "id": 31,
+            "name": "project-31",
+            "repo": "org3/project-31",
+            "description": "project-31 is a library for web apps.",
+            "stars": 187514,
+            "watchers": 5817,
+            "forks": 4460,
+            "defaultBranch": "main",
+            "createdAt": "2015-05-10",
+            "updatedAt": "2025-10-03",
+            "pushedAt": "2025-04-03"
+          },
+          {
+            "id": 32,
+            "name": "project-32",
+            "repo": "org4/project-32",
+            "description": "project-32 is a library for web apps.",
+            "stars": 19611,
+            "watchers": 1206,
+            "forks": 1201,
+            "defaultBranch": "main",
+            "createdAt": "2016-05-19",
+            "updatedAt": "2025-07-28",
+            "pushedAt": "2024-03-09"
+          },
+          {
+            "id": 33,
+            "name": "project-33",
+            "repo": "org5/project-33",
+            "description": "project-33 is a library for data pipelines.",
+            "stars": 25452,
+            "watchers": 902,
+            "forks": 4828,
+            "defaultBranch": "main",
+            "createdAt": "2015-05-04",
+            "updatedAt": "2025-05-02",
+            "pushedAt": "2025-05-14"
+          },
+          {
+            "id": 34,
+            "name": "project-34",
+            "repo": "org6/project-34",
+            "description": "project-34 is a library for APIs.",
+            "stars": 32471,
+            "watchers": 2077,
+            "forks": 4657,
+            "defaultBranch": "master",
+            "createdAt": "2020-01-20",
+            "updatedAt": "2026-02-10",
+            "pushedAt": "2026-07-14"
+          },
+          {
+            "id": 35,
+            "name": "project-35",
+            "repo": "org7/project-35",
+            "description": "project-35 is a library for ML workflows.",
+            "stars": 229181,
+            "watchers": 4895,
+            "forks": 52019,
+            "defaultBranch": "main",
+            "createdAt": "2022-07-20",
+            "updatedAt": "2025-03-01",
+            "pushedAt": "2025-04-05"
+          },
+          {
+            "id": 36,
+            "name": "project-36",
+            "repo": "org1/project-36",
+            "description": "project-36 is a library for dev tools.",
+            "stars": 179075,
+            "watchers": 6346,
+            "forks": 37298,
+            "defaultBranch": "main",
+            "createdAt": "2018-02-02",
+            "updatedAt": "2024-11-03",
+            "pushedAt": "2026-09-25"
+          },
+          {
+            "id": 37,
+            "name": "project-37",
+            "repo": "org2/project-37",
+            "description": "project-37 is a library for APIs.",
+            "stars": 228116,
+            "watchers": 2292,
+            "forks": 12221,
+            "defaultBranch": "main",
+            "createdAt": "2023-08-05",
+            "updatedAt": "2025-09-17",
+            "pushedAt": "2026-06-13"
+          },
+          {
+            "id": 38,
+            "name": "project-38",
+            "repo": "org3/project-38",
+            "description": "project-38 is a library for APIs.",
+            "stars": 160278,
+            "watchers": 11555,
+            "forks": 21972,
+            "defaultBranch": "main",
+            "createdAt": "2022-10-24",
+            "updatedAt": "2025-05-26",
+            "pushedAt": "2025-11-04"
+          },
+          {
+            "id": 39,
+            "name": "project-39",
+            "repo": "org4/project-39",
+            "description": "project-39 is a library for data pipelines.",
+            "stars": 221737,
+            "watchers": 11458,
+            "forks": 7871,
+            "defaultBranch": "main",
+            "createdAt": "2018-11-19",
+            "updatedAt": "2024-08-24",
+            "pushedAt": "2026-10-01"
+          },
+          {
+            "id": 40,
+            "name": "project-40",
+            "repo": "org5/project-40",
+            "description": "project-40 is a library for data pipelines.",
+            "stars": 210660,
+            "watchers": 5126,
+            "forks": 15791,
+            "defaultBranch": "main",
+            "createdAt": "2019-07-20",
+            "updatedAt": "2024-11-08",
+            "pushedAt": "2026-08-28"
+          },
+          {
+            "id": 41,
+            "name": "project-41",
+            "repo": "org6/project-41",
+            "description": "project-41 is a library for ML workflows.",
+            "stars": 49484,
+            "watchers": 1962,
+            "forks": 8386,
+            "defaultBranch": "main",
+            "createdAt": "2021-04-16",
+            "updatedAt": "2025-07-06",
+            "pushedAt": "2024-01-22"
+          },
+          {
+            "id": 42,
+            "name": "project-42",
+            "repo": "org7/project-42",
+            "description": "project-42 is a library for data pipelines.",
+            "stars": 60078,
+            "watchers": 1335,
+            "forks": 1668,
+            "defaultBranch": "main",
+            "createdAt": "2023-11-28",
+            "updatedAt": "2025-05-19",
+            "pushedAt": "2025-09-10"
+          },
+          {
+            "id": 43,
+            "name": "project-43",
+            "repo": "org1/project-43",
+            "description": "project-43 is a library for dev tools.",
+            "stars": 77460,
+            "watchers": 4003,
+            "forks": 3981,
+            "defaultBranch": "main",
+            "createdAt": "2015-06-27",
+            "updatedAt": "2026-05-18",
+            "pushedAt": "2026-11-20"
+          },
+          {
+            "id": 44,
+            "name": "project-44",
+            "repo": "org2/project-44",
+            "description": "project-44 is a library for data pipelines.",
+            "stars": 53704,
+            "watchers": 1488,
+            "forks": 3215,
+            "defaultBranch": "main",
+            "createdAt": "2022-12-18",
+            "updatedAt": "2025-10-08",
+            "pushedAt": "2024-08-05"
+          },
+          {
+            "id": 45,
+            "name": "project-45",
+            "repo": "org3/project-45",
+            "description": "project-45 is a library for dev tools.",
+            "stars": 234980,
+            "watchers": 12750,
+            "forks": 57274,
+            "defaultBranch": "main",
+            "createdAt": "2016-06-07",
+            "updatedAt": "2024-02-17",
+            "pushedAt": "2024-04-24"
+          },
+          {
+            "id": 46,
+            "name": "project-46",
+            "repo": "org4/project-46",
+            "description": "project-46 is a library for data pipelines.",
+            "stars": 234126,
+            "watchers": 8531,
+            "forks": 39485,
+            "defaultBranch": "master",
+            "createdAt": "2023-11-22",
+            "updatedAt": "2025-10-19",
+            "pushedAt": "2024-01-18"
+          },
+          {
+            "id": 47,
+            "name": "project-47",
+            "repo": "org5/project-47",
+            "description": "project-47 is a library for observability.",
+            "stars": 147405,
+            "watchers": 8437,
+            "forks": 5990,
+            "defaultBranch": "main",
+            "createdAt": "2016-07-23",
+            "updatedAt": "2025-06-15",
+            "pushedAt": "2025-12-22"
+          },
+          {
+            "id": 48,
+            "name": "project-48",
+            "repo": "org6/project-48",
+            "description": "project-48 is a library for observability.",
+            "stars": 24571,
+            "watchers": 1274,
+            "forks": 4571,
+            "defaultBranch": "main",
+            "createdAt": "2018-12-16",
+            "updatedAt": "2026-12-19",
+            "pushedAt": "2025-01-28"
+          },
+          {
+            "id": 49,
+            "name": "project-49",
+            "repo": "org7/project-49",
+            "description": "project-49 is a library for APIs.",
+            "stars": 104056,
+            "watchers": 1106,
+            "forks": 12185,
+            "defaultBranch": "main",
+            "createdAt": "2020-10-24",
+            "updatedAt": "2024-01-07",
+            "pushedAt": "2025-06-09"
+          },
+          {
+            "id": 50,
+            "name": "project-50",
+            "repo": "org1/project-50",
+            "description": "project-50 is a library for web apps.",
+            "stars": 187325,
+            "watchers": 3273,
+            "forks": 27263,
+            "defaultBranch": "main",
+            "createdAt": "2019-09-27",
+            "updatedAt": "2025-12-15",
+            "pushedAt": "2026-04-25"
+          },
+          {
+            "id": 51,
+            "name": "project-51",
+            "repo": "org2/project-51",
+            "description": "project-51 is a library for APIs.",
+            "stars": 207287,
+            "watchers": 11791,
+            "forks": 45256,
+            "defaultBranch": "main",
+            "createdAt": "2014-06-12",
+            "updatedAt": "2026-11-03",
+            "pushedAt": "2024-01-23"
+          },
+          {
+            "id": 52,
+            "name": "project-52",
+            "repo": "org3/project-52",
+            "description": "project-52 is a library for APIs.",
+            "stars": 181734,
+            "watchers": 3487,
+            "forks": 36997,
+            "defaultBranch": "main",
+            "createdAt": "2023-06-09",
+            "updatedAt": "2025-03-20",
+            "pushedAt": "2026-05-21"
+          },
+          {
+            "id": 53,
+            "name": "project-53",
+            "repo": "org4/project-53",
+            "description": "project-53 is a library for web apps.",
+            "stars": 14346,
+            "watchers": 1029,
+            "forks": 1763,
+            "defaultBranch": "master",
+            "createdAt": "2018-01-03",
+            "updatedAt": "2025-04-20",
+            "pushedAt": "2025-10-04"
+          },
+          {
+            "id": 54,
+            "name": "project-54",
+            "repo": "org5/project-54",
+            "description": "project-54 is a library for observability.",
+            "stars": 139849,
+            "watchers": 8106,
+            "forks": 13041,
+            "defaultBranch": "main",
+            "createdAt": "2015-01-23",
+            "updatedAt": "2024-04-17",
+            "pushedAt": "2024-06-11"
+          },
+          {
+            "id": 55,
+            "name": "project-55",
+            "repo": "org6/project-55",
+            "description": "project-55 is a library for ML workflows.",
+            "stars": 212196,
+            "watchers": 11282,
+            "forks": 50961,
+            "defaultBranch": "main",
+            "createdAt": "2016-12-15",
+            "updatedAt": "2025-03-06",
+            "pushedAt": "2026-09-12"
+          },
+          {
+            "id": 56,
+            "name": "project-56",
+            "repo": "org7/project-56",
+            "description": "project-56 is a library for data pipelines.",
+            "stars": 77714,
+            "watchers": 4651,
+            "forks": 2220,
+            "defaultBranch": "main",
+            "createdAt": "2016-07-17",
+            "updatedAt": "2024-09-16",
+            "pushedAt": "2024-01-23"
+          },
+          {
+            "id": 57,
+            "name": "project-57",
+            "repo": "org1/project-57",
+            "description": "project-57 is a library for dev tools.",
+            "stars": 49593,
+            "watchers": 1989,
+            "forks": 4885,
+            "defaultBranch": "master",
+            "createdAt": "2014-02-12",
+            "updatedAt": "2026-01-19",
+            "pushedAt": "2024-10-02"
+          },
+          {
+            "id": 58,
+            "name": "project-58",
+            "repo": "org2/project-58",
+            "description": "project-58 is a library for ML workflows.",
+            "stars": 145968,
+            "watchers": 11314,
+            "forks": 10436,
+            "defaultBranch": "main",
+            "createdAt": "2015-09-25",
+            "updatedAt": "2026-06-13",
+            "pushedAt": "2024-05-18"
+          },
+          {
+            "id": 59,
+            "name": "project-59",
+            "repo": "org3/project-59",
+            "description": "project-59 is a library for data pipelines.",
+            "stars": 70793,
+            "watchers": 5469,
+            "forks": 16474,
+            "defaultBranch": "main",
+            "createdAt": "2023-03-12",
+            "updatedAt": "2025-05-18",
+            "pushedAt": "2026-11-09"
+          },
+          {
+            "id": 60,
+            "name": "project-60",
+            "repo": "org4/project-60",
+            "description": "project-60 is a library for web apps.",
+            "stars": 220429,
+            "watchers": 9375,
+            "forks": 53866,
+            "defaultBranch": "main",
+            "createdAt": "2017-10-16",
+            "updatedAt": "2024-12-28",
+            "pushedAt": "2024-11-13"
+          },
+          {
+            "id": 61,
+            "name": "project-61",
+            "repo": "org5/project-61",
+            "description": "project-61 is a library for dev tools.",
+            "stars": 166720,
+            "watchers": 7512,
+            "forks": 36434,
+            "defaultBranch": "master",
+            "createdAt": "2016-03-20",
+            "updatedAt": "2024-01-16",
+            "pushedAt": "2026-06-21"
+          },
+          {
+            "id": 62,
+            "name": "project-62",
+            "repo": "org6/project-62",
+            "description": "project-62 is a library for observability.",
+            "stars": 127934,
+            "watchers": 4233,
+            "forks": 28916,
+            "defaultBranch": "main",
+            "createdAt": "2014-12-09",
+            "updatedAt": "2024-07-02",
+            "pushedAt": "2026-06-19"
+          },
+          {
+            "id": 63,
+            "name": "project-63",
+            "repo": "org7/project-63",
+            "description": "project-63 is a library for web apps.",
+            "stars": 211620,
+            "watchers": 14818,
+            "forks": 43161,
+            "defaultBranch": "master",
+            "createdAt": "2018-11-22",
+            "updatedAt": "2026-02-21",
+            "pushedAt": "2024-12-17"
+          },
+          {
+            "id": 64,
+            "name": "project-64",
+            "repo": "org1/project-64",
+            "description": "project-64 is a library for web apps.",
+            "stars": 25021,
+            "watchers": 1458,
+            "forks": 5831,
+            "defaultBranch": "master",
+            "createdAt": "2017-11-01",
+            "updatedAt": "2025-01-26",
+            "pushedAt": "2024-06-07"
+          },
+          {
+            "id": 65,
+            "name": "project-65",
+            "repo": "org2/project-65",
+            "description": "project-65 is a library for observability.",
+            "stars": 56161,
+            "watchers": 2070,
+            "forks": 12281,
+            "defaultBranch": "main",
+            "createdAt": "2020-08-11",
+            "updatedAt": "2026-05-03",
+            "pushedAt": "2024-04-05"
+          },
+          {
+            "id": 66,
+            "name": "project-66",
+            "repo": "org3/project-66",
+            "description": "project-66 is a library for dev tools.",
+            "stars": 118462,
+            "watchers": 3788,
+            "forks": 21541,
+            "defaultBranch": "main",
+            "createdAt": "2022-02-26",
+            "updatedAt": "2024-10-21",
+            "pushedAt": "2025-12-27"
+          },
+          {
+            "id": 67,
+            "name": "project-67",
+            "repo": "org4/project-67",
+            "description": "project-67 is a library for ML workflows.",
+            "stars": 86875,
+            "watchers": 3099,
+            "forks": 20173,
+            "defaultBranch": "main",
+            "createdAt": "2020-11-06",
+            "updatedAt": "2026-02-12",
+            "pushedAt": "2025-04-01"
+          },
+          {
+            "id": 68,
+            "name": "project-68",
+            "repo": "org5/project-68",
+            "description": "project-68 is a library for dev tools.",
+            "stars": 227730,
+            "watchers": 3121,
+            "forks": 5623,
+            "defaultBranch": "main",
+            "createdAt": "2019-08-10",
+            "updatedAt": "2026-03-24",
+            "pushedAt": "2025-05-03"
+          },
+          {
+            "id": 69,
+            "name": "project-69",
+            "repo": "org6/project-69",
+            "description": "project-69 is a library for web apps.",
+            "stars": 38945,
+            "watchers": 907,
+            "forks": 5477,
+            "defaultBranch": "main",
+            "createdAt": "2016-01-19",
+            "updatedAt": "2025-07-18",
+            "pushedAt": "2024-06-23"
+          },
+          {
+            "id": 70,
+            "name": "project-70",
+            "repo": "org7/project-70",
+            "description": "project-70 is a library for ML workflows.",
+            "stars": 148152,
+            "watchers": 10278,
+            "forks": 12418,
+            "defaultBranch": "main",
+            "createdAt": "2014-04-23",
+            "updatedAt": "2025-07-23",
+            "pushedAt": "2025-07-14"
+          },
+          {
+            "id": 71,
+            "name": "project-71",
+            "repo": "org1/project-71",
+            "description": "project-71 is a library for data pipelines.",
+            "stars": 246476,
+            "watchers": 18251,
+            "forks": 54117,
+            "defaultBranch": "master",
+            "createdAt": "2022-11-13",
+            "updatedAt": "2026-09-14",
+            "pushedAt": "2024-05-07"
+          },
+          {
+            "id": 72,
+            "name": "project-72",
+            "repo": "org2/project-72",
+            "description": "project-72 is a library for APIs.",
+            "stars": 206814,
+            "watchers": 12748,
+            "forks": 38349,
+            "defaultBranch": "main",
+            "createdAt": "2022-03-08",
+            "updatedAt": "2025-03-11",
+            "pushedAt": "2026-05-01"
+          },
+          {
+            "id": 73,
+            "name": "project-73",
+            "repo": "org3/project-73",
+            "description": "project-73 is a library for data pipelines.",
+            "stars": 76013,
+            "watchers": 3859,
+            "forks": 8315,
+            "defaultBranch": "main",
+            "createdAt": "2015-01-08",
+            "updatedAt": "2024-07-23",
+            "pushedAt": "2025-06-05"
+          },
+          {
+            "id": 74,
+            "name": "project-74",
+            "repo": "org4/project-74",
+            "description": "project-74 is a library for observability.",
+            "stars": 182635,
+            "watchers": 1899,
+            "forks": 44650,
+            "defaultBranch": "main",
+            "createdAt": "2016-12-26",
+            "updatedAt": "2025-05-11",
+            "pushedAt": "2026-03-25"
+          },
+          {
+            "id": 75,
+            "name": "project-75",
+            "repo": "org5/project-75",
+            "description": "project-75 is a library for dev tools.",
+            "stars": 170979,
+            "watchers": 13473,
+            "forks": 23021,
+            "defaultBranch": "main",
+            "createdAt": "2014-05-03",
+            "updatedAt": "2026-02-07",
+            "pushedAt": "2024-01-13"
+          },
+          {
+            "id": 76,
+            "name": "project-76",
+            "repo": "org6/project-76",
+            "description": "project-76 is a library for APIs.",
+            "stars": 31409,
+            "watchers": 2292,
+            "forks": 4010,
+            "defaultBranch": "master",
+            "createdAt": "2019-01-07",
+            "updatedAt": "2026-11-25",
+            "pushedAt": "2025-05-27"
+          },
+          {
+            "id": 77,
+            "name": "project-77",
+            "repo": "org7/project-77",
+            "description": "project-77 is a library for APIs.",
+            "stars": 232884,
+            "watchers": 6652,
+            "forks": 24581,
+            "defaultBranch": "main",
+            "createdAt": "2019-08-08",
+            "updatedAt": "2024-11-15",
+            "pushedAt": "2024-12-20"
+          },
+          {
+            "id": 78,
+            "name": "project-78",
+            "repo": "org1/project-78",
+            "description": "project-78 is a library for dev tools.",
+            "stars": 9686,
+            "watchers": 480,
+            "forks": 1231,
+            "defaultBranch": "main",
+            "createdAt": "2021-11-05",
+            "updatedAt": "2025-08-26",
+            "pushedAt": "2026-09-05"
+          },
+          {
+            "id": 79,
+            "name": "project-79",
+            "repo": "org2/project-79",
+            "description": "project-79 is a library for observability.",
+            "stars": 84518,
+            "watchers": 4481,
+            "forks": 11455,
+            "defaultBranch": "main",
+            "createdAt": "2014-03-15",
+            "updatedAt": "2025-04-11",
+            "pushedAt": "2024-12-15"
+          },
+          {
+            "id": 80,
+            "name": "project-80",
+            "repo": "org3/project-80",
+            "description": "project-80 is a library for APIs.",
+            "stars": 42844,
+            "watchers": 2449,
+            "forks": 2301,
+            "defaultBranch": "main",
+            "createdAt": "2016-04-07",
+            "updatedAt": "2026-09-17",
+            "pushedAt": "2025-01-19"
+          },
+          {
+            "id": 81,
+            "name": "project-81",
+            "repo": "org4/project-81",
+            "description": "project-81 is a library for observability.",
+            "stars": 185193,
+            "watchers": 4177,
+            "forks": 14834,
+            "defaultBranch": "main",
+            "createdAt": "2023-09-16",
+            "updatedAt": "2025-11-13",
+            "pushedAt": "2024-11-17"
+          },
+          {
+            "id": 82,
+            "name": "project-82",
+            "repo": "org5/project-82",
+            "description": "project-82 is a library for observability.",
+            "stars": 122470,
+            "watchers": 2703,
+            "forks": 8727,
+            "defaultBranch": "main",
+            "createdAt": "2021-01-18",
+            "updatedAt": "2024-09-23",
+            "pushedAt": "2026-09-02"
+          },
+          {
+            "id": 83,
+            "name": "project-83",
+            "repo": "org6/project-83",
+            "description": "project-83 is a library for ML workflows.",
+            "stars": 124427,
+            "watchers": 4852,
+            "forks": 21204,
+            "defaultBranch": "main",
+            "createdAt": "2018-10-24",
+            "updatedAt": "2026-07-03",
+            "pushedAt": "2024-11-09"
+          },
+          {
+            "id": 84,
+            "name": "project-84",
+            "repo": "org7/project-84",
+            "description": "project-84 is a library for observability.",
+            "stars": 12084,
+            "watchers": 137,
+            "forks": 805,
+            "defaultBranch": "main",
+            "createdAt": "2018-02-16",
+            "updatedAt": "2025-01-13",
+            "pushedAt": "2024-02-21"
+          },
+          {
+            "id": 85,
+            "name": "project-85",
+            "repo": "org1/project-85",
+            "description": "project-85 is a library for web apps.",
+            "stars": 110121,
+            "watchers": 4945,
+            "forks": 23625,
+            "defaultBranch": "main",
+            "createdAt": "2015-01-05",
+            "updatedAt": "2025-09-21",
+            "pushedAt": "2026-12-04"
+          },
+          {
+            "id": 86,
+            "name": "project-86",
+            "repo": "org2/project-86",
+            "description": "project-86 is a library for ML workflows.",
+            "stars": 137865,
+            "watchers": 6494,
+            "forks": 7832,
+            "defaultBranch": "main",
+            "createdAt": "2022-03-03",
+            "updatedAt": "2026-11-24",
+            "pushedAt": "2026-12-21"
+          },
+          {
+            "id": 87,
+            "name": "project-87",
+            "repo": "org3/project-87",
+            "description": "project-87 is a library for APIs.",
+            "stars": 229707,
+            "watchers": 9816,
+            "forks": 49723,
+            "defaultBranch": "main",
+            "createdAt": "2019-02-08",
+            "updatedAt": "2026-12-28",
+            "pushedAt": "2026-12-23"
+          },
+          {
+            "id": 88,
+            "name": "project-88",
+            "repo": "org4/project-88",
+            "description": "project-88 is a library for dev tools.",
+            "stars": 104139,
+            "watchers": 1328,
+            "forks": 24234,
+            "defaultBranch": "master",
+            "createdAt": "2014-09-06",
+            "updatedAt": "2025-06-27",
+            "pushedAt": "2024-12-11"
+          },
+          {
+            "id": 89,
+            "name": "project-89",
+            "repo": "org5/project-89",
+            "description": "project-89 is a library for dev tools.",
+            "stars": 44765,
+            "watchers": 932,
+            "forks": 11096,
+            "defaultBranch": "master",
+            "createdAt": "2020-10-26",
+            "updatedAt": "2026-11-23",
+            "pushedAt": "2025-03-11"
+          },
+          {
+            "id": 90,
+            "name": "project-90",
+            "repo": "org6/project-90",
+            "description": "project-90 is a library for web apps.",
+            "stars": 138153,
+            "watchers": 2289,
+            "forks": 14441,
+            "defaultBranch": "main",
+            "createdAt": "2016-10-21",
+            "updatedAt": "2024-09-15",
+            "pushedAt": "2026-04-22"
+          },
+          {
+            "id": 91,
+            "name": "project-91",
+            "repo": "org7/project-91",
+            "description": "project-91 is a library for data pipelines.",
+            "stars": 150964,
+            "watchers": 4442,
+            "forks": 25174,
+            "defaultBranch": "main",
+            "createdAt": "2021-01-04",
+            "updatedAt": "2026-04-23",
+            "pushedAt": "2024-12-04"
+          },
+          {
+            "id": 92,
+            "name": "project-92",
+            "repo": "org1/project-92",
+            "description": "project-92 is a library for dev tools.",
+            "stars": 248697,
+            "watchers": 3928,
+            "forks": 22386,
+            "defaultBranch": "main",
+            "createdAt": "2015-12-02",
+            "updatedAt": "2024-01-05",
+            "pushedAt": "2026-07-09"
+          },
+          {
+            "id": 93,
+            "name": "project-93",
+            "repo": "org2/project-93",
+            "description": "project-93 is a library for web apps.",
+            "stars": 112401,
+            "watchers": 8127,
+            "forks": 24727,
+            "defaultBranch": "main",
+            "createdAt": "2019-06-20",
+            "updatedAt": "2026-02-21",
+            "pushedAt": "2024-09-08"
+          },
+          {
+            "id": 94,
+            "name": "project-94",
+            "repo": "org3/project-94",
+            "description": "project-94 is a library for dev tools.",
+            "stars": 100445,
+            "watchers": 6050,
+            "forks": 2030,
+            "defaultBranch": "master",
+            "createdAt": "2023-07-05",
+            "updatedAt": "2024-12-18",
+            "pushedAt": "2025-05-24"
+          },
+          {
+            "id": 95,
+            "name": "project-95",
+            "repo": "org4/project-95",
+            "description": "project-95 is a library for data pipelines.",
+            "stars": 44812,
+            "watchers": 2419,
+            "forks": 7129,
+            "defaultBranch": "main",
+            "createdAt": "2022-06-18",
+            "updatedAt": "2024-03-07",
+            "pushedAt": "2026-12-22"
+          },
+          {
+            "id": 96,
+            "name": "project-96",
+            "repo": "org5/project-96",
+            "description": "project-96 is a library for observability.",
+            "stars": 1961,
+            "watchers": 137,
+            "forks": 253,
+            "defaultBranch": "main",
+            "createdAt": "2017-06-03",
+            "updatedAt": "2026-04-14",
+            "pushedAt": "2025-05-08"
+          },
+          {
+            "id": 97,
+            "name": "project-97",
+            "repo": "org6/project-97",
+            "description": "project-97 is a library for web apps.",
+            "stars": 1370,
+            "watchers": 50,
+            "forks": 166,
+            "defaultBranch": "main",
+            "createdAt": "2019-07-03",
+            "updatedAt": "2026-09-10",
+            "pushedAt": "2026-09-21"
+          },
+          {
+            "id": 98,
+            "name": "project-98",
+            "repo": "org7/project-98",
+            "description": "project-98 is a library for observability.",
+            "stars": 221359,
+            "watchers": 7702,
+            "forks": 12966,
+            "defaultBranch": "main",
+            "createdAt": "2017-03-18",
+            "updatedAt": "2026-05-13",
+            "pushedAt": "2026-12-04"
+          },
+          {
+            "id": 99,
+            "name": "project-99",
+            "repo": "org1/project-99",
+            "description": "project-99 is a library for data pipelines.",
+            "stars": 12798,
+            "watchers": 450,
+            "forks": 2170,
+            "defaultBranch": "main",
+            "createdAt": "2017-05-18",
+            "updatedAt": "2026-11-24",
+            "pushedAt": "2024-02-14"
+          },
+          {
+            "id": 100,
+            "name": "project-100",
+            "repo": "org2/project-100",
+            "description": "project-100 is a library for data pipelines.",
+            "stars": 119276,
+            "watchers": 4478,
+            "forks": 14013,
+            "defaultBranch": "master",
+            "createdAt": "2020-12-16",
+            "updatedAt": "2024-09-09",
+            "pushedAt": "2026-12-23"
+          }
+        ]
+      },
+      "variants": {
+        "json": {
+          "type": "json",
+          "pretty": true
+        },
+        "json_compact": {
+          "type": "json",
+          "pretty": false
+        },
+        "yaml": {
+          "type": "yaml"
+        },
+        "toon": {
+          "type": "toon",
+          "delimiter": ","
+        },
+        "xml": {
+          "type": "xml",
+          "rootName": "dataset",
+          "pretty": true
+        },
+        "csv": {
+          "type": "csv",
+          "delimiter": ","
+        },
+        "json_cddl": {
+          "type": "cddl_json",
+          "schema": "; Keyless repositories dataset schema (CDDL)\nrepository = [\n  id: uint,\n  name: tstr,\n  repo: tstr,\n  description: tstr,\n  stars: uint,\n  watchers: uint,\n  forks: uint,\n  defaultBranch: tstr,\n  createdAt: tstr,\n  updatedAt: tstr,\n  pushedAt: tstr,\n]\n\nrepositories-dataset = [* repository]",
+          "transforms": [
+            {
+              "path": "/repositories/*",
+              "order": [
+                "id",
+                "name",
+                "repo",
+                "description",
+                "stars",
+                "watchers",
+                "forks",
+                "defaultBranch",
+                "createdAt",
+                "updatedAt",
+                "pushedAt"
+              ]
+            }
+          ],
+          "compact": true,
+          "rootPath": "/repositories"
+        }
+      },
+      "questions": [
+        {
+          "id": "stars_repo_project_42",
+          "question": "How many stars does repository \"org7/project-42\" have?",
+          "expected": 60078,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "default_branch_project_7",
+          "question": "What is the defaultBranch of repository \"org7/project-7\"?",
+          "expected": "main",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "created_at_project_1",
+          "question": "What is the createdAt date of repository \"org1/project-1\"?",
+          "expected": "2022-12-07",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "forks_project_100",
+          "question": "How many forks does repository \"org2/project-100\" have?",
+          "expected": 14013,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "repo_count",
+          "question": "How many repositories are in the dataset?",
+          "expected": 100,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg"
+          ]
+        },
+        {
+          "id": "total_stars",
+          "question": "What is the total number of stars across all repositories?",
+          "expected": 11816636,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg",
+            "number"
+          ]
+        },
+        {
+          "id": "count_stars_gt_150k",
+          "question": "How many repositories have more than 150000 stars?",
+          "expected": 38,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        },
+        {
+          "id": "count_main_and_stars_gt_100k",
+          "question": "How many repositories have defaultBranch \"main\" and more than 100000 stars?",
+          "expected": 48,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event-logs",
+      "input": {
+        "logs": [
+          {
+            "timestamp": "2026-02-01T00:00:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 228,
+            "responseTime": 3066,
+            "userId": 8320,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:05:00Z",
+            "level": "error",
+            "endpoint": "/api/orders",
+            "statusCode": 403,
+            "responseTime": 4283,
+            "userId": 3323,
+            "error": {
+              "message": "Internal server error",
+              "code": "AUTH_INVALID",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T00:10:00Z",
+            "level": "warn",
+            "endpoint": "/api/products",
+            "statusCode": 201,
+            "responseTime": 3489,
+            "userId": 3363,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:15:00Z",
+            "level": "info",
+            "endpoint": "/api/auth",
+            "statusCode": 252,
+            "responseTime": 3014,
+            "userId": 7404,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:20:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 223,
+            "responseTime": 1030,
+            "userId": 6798,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:25:00Z",
+            "level": "info",
+            "endpoint": "/api/users",
+            "statusCode": 220,
+            "responseTime": 4553,
+            "userId": 6299,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:30:00Z",
+            "level": "info",
+            "endpoint": "/api/orders",
+            "statusCode": 209,
+            "responseTime": 2306,
+            "userId": 6366,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:35:00Z",
+            "level": "warn",
+            "endpoint": "/api/payments",
+            "statusCode": 234,
+            "responseTime": 3065,
+            "userId": 5369,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:40:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 599,
+            "responseTime": 3116,
+            "userId": 7336,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "DB_TIMEOUT",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T00:45:00Z",
+            "level": "info",
+            "endpoint": "/api/orders",
+            "statusCode": 284,
+            "responseTime": 3951,
+            "userId": 1933,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:50:00Z",
+            "level": "info",
+            "endpoint": "/api/users",
+            "statusCode": 235,
+            "responseTime": 2425,
+            "userId": 3774,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T00:55:00Z",
+            "level": "warn",
+            "endpoint": "/api/products",
+            "statusCode": 200,
+            "responseTime": 2498,
+            "userId": 8156,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T01:00:00Z",
+            "level": "info",
+            "endpoint": "/api/payments",
+            "statusCode": 262,
+            "responseTime": 3678,
+            "userId": 9870,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T01:05:00Z",
+            "level": "warn",
+            "endpoint": "/api/orders",
+            "statusCode": 530,
+            "responseTime": 537,
+            "userId": 3492,
+            "error": {
+              "message": "Internal server error",
+              "code": "INTERNAL",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T01:10:00Z",
+            "level": "warn",
+            "endpoint": "/api/products",
+            "statusCode": 425,
+            "responseTime": 429,
+            "userId": 9171,
+            "error": {
+              "message": "Rate limit exceeded",
+              "code": "DB_TIMEOUT",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T01:15:00Z",
+            "level": "error",
+            "endpoint": "/api/auth",
+            "statusCode": 523,
+            "responseTime": 1746,
+            "userId": 8751,
+            "error": {
+              "message": "Resource not found",
+              "code": "INTERNAL",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T01:20:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 298,
+            "responseTime": 23,
+            "userId": 3645,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T01:25:00Z",
+            "level": "error",
+            "endpoint": "/api/orders",
+            "statusCode": 493,
+            "responseTime": 2266,
+            "userId": 6073,
+            "error": {
+              "message": "Internal server error",
+              "code": "RATE_LIMIT",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T01:30:00Z",
+            "level": "warn",
+            "endpoint": "/api/users",
+            "statusCode": 297,
+            "responseTime": 3659,
+            "userId": 2398,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T01:35:00Z",
+            "level": "info",
+            "endpoint": "/api/users",
+            "statusCode": 286,
+            "responseTime": 4904,
+            "userId": 5171,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T01:40:00Z",
+            "level": "warn",
+            "endpoint": "/api/users",
+            "statusCode": 533,
+            "responseTime": 1632,
+            "userId": 2412,
+            "error": {
+              "message": "Resource not found",
+              "code": "NOT_FOUND",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T01:45:00Z",
+            "level": "info",
+            "endpoint": "/api/orders",
+            "statusCode": 280,
+            "responseTime": 2566,
+            "userId": 1618,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T01:50:00Z",
+            "level": "error",
+            "endpoint": "/api/products",
+            "statusCode": 582,
+            "responseTime": 1952,
+            "userId": 5260,
+            "error": {
+              "message": "Resource not found",
+              "code": "NOT_FOUND",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T01:55:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 206,
+            "responseTime": 3385,
+            "userId": 8072,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:00:00Z",
+            "level": "error",
+            "endpoint": "/api/users",
+            "statusCode": 480,
+            "responseTime": 3076,
+            "userId": 8198,
+            "error": {
+              "message": "Rate limit exceeded",
+              "code": "INTERNAL",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T02:05:00Z",
+            "level": "warn",
+            "endpoint": "/api/orders",
+            "statusCode": 264,
+            "responseTime": 2174,
+            "userId": 6030,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:10:00Z",
+            "level": "info",
+            "endpoint": "/api/users",
+            "statusCode": 274,
+            "responseTime": 4340,
+            "userId": 4222,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:15:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 503,
+            "responseTime": 2358,
+            "userId": 6302,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "INTERNAL",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T02:20:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 261,
+            "responseTime": 2108,
+            "userId": 6858,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:25:00Z",
+            "level": "info",
+            "endpoint": "/api/payments",
+            "statusCode": 220,
+            "responseTime": 1578,
+            "userId": 9919,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:30:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 515,
+            "responseTime": 182,
+            "userId": 3256,
+            "error": {
+              "message": "Resource not found",
+              "code": "NOT_FOUND",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T02:35:00Z",
+            "level": "info",
+            "endpoint": "/api/users",
+            "statusCode": 289,
+            "responseTime": 1862,
+            "userId": 4717,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:40:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 207,
+            "responseTime": 2497,
+            "userId": 9325,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:45:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 284,
+            "responseTime": 700,
+            "userId": 2762,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:50:00Z",
+            "level": "warn",
+            "endpoint": "/api/payments",
+            "statusCode": 269,
+            "responseTime": 1872,
+            "userId": 7205,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T02:55:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 266,
+            "responseTime": 2996,
+            "userId": 9265,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:00:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 451,
+            "responseTime": 2746,
+            "userId": 5567,
+            "error": {
+              "message": "Rate limit exceeded",
+              "code": "AUTH_INVALID",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T03:05:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 493,
+            "responseTime": 2716,
+            "userId": 4061,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "AUTH_INVALID",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T03:10:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 586,
+            "responseTime": 4756,
+            "userId": 4861,
+            "error": {
+              "message": "Rate limit exceeded",
+              "code": "INTERNAL",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T03:15:00Z",
+            "level": "warn",
+            "endpoint": "/api/users",
+            "statusCode": 247,
+            "responseTime": 1115,
+            "userId": 5170,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:20:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 275,
+            "responseTime": 2646,
+            "userId": 5535,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:25:00Z",
+            "level": "warn",
+            "endpoint": "/api/products",
+            "statusCode": 256,
+            "responseTime": 3651,
+            "userId": 9101,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:30:00Z",
+            "level": "info",
+            "endpoint": "/api/payments",
+            "statusCode": 209,
+            "responseTime": 238,
+            "userId": 7754,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:35:00Z",
+            "level": "info",
+            "endpoint": "/api/auth",
+            "statusCode": 204,
+            "responseTime": 3914,
+            "userId": 8651,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:40:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 493,
+            "responseTime": 3155,
+            "userId": 8735,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "INTERNAL",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T03:45:00Z",
+            "level": "warn",
+            "endpoint": "/api/users",
+            "statusCode": 281,
+            "responseTime": 2679,
+            "userId": 5749,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:50:00Z",
+            "level": "info",
+            "endpoint": "/api/payments",
+            "statusCode": 279,
+            "responseTime": 1414,
+            "userId": 1811,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T03:55:00Z",
+            "level": "warn",
+            "endpoint": "/api/products",
+            "statusCode": 242,
+            "responseTime": 1614,
+            "userId": 9061,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:00:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 242,
+            "responseTime": 1632,
+            "userId": 3484,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:05:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 275,
+            "responseTime": 1373,
+            "userId": 8933,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:10:00Z",
+            "level": "warn",
+            "endpoint": "/api/payments",
+            "statusCode": 551,
+            "responseTime": 4202,
+            "userId": 7003,
+            "error": {
+              "message": "Database connection timeout",
+              "code": "RATE_LIMIT",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T04:15:00Z",
+            "level": "error",
+            "endpoint": "/api/auth",
+            "statusCode": 585,
+            "responseTime": 709,
+            "userId": 9659,
+            "error": {
+              "message": "Database connection timeout",
+              "code": "RATE_LIMIT",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T04:20:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 201,
+            "responseTime": 1372,
+            "userId": 8078,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:25:00Z",
+            "level": "info",
+            "endpoint": "/api/payments",
+            "statusCode": 204,
+            "responseTime": 1706,
+            "userId": 8383,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:30:00Z",
+            "level": "info",
+            "endpoint": "/api/users",
+            "statusCode": 217,
+            "responseTime": 4183,
+            "userId": 1013,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:35:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 236,
+            "responseTime": 1583,
+            "userId": 8122,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:40:00Z",
+            "level": "warn",
+            "endpoint": "/api/payments",
+            "statusCode": 206,
+            "responseTime": 4536,
+            "userId": 7963,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T04:45:00Z",
+            "level": "error",
+            "endpoint": "/api/products",
+            "statusCode": 578,
+            "responseTime": 3636,
+            "userId": 7089,
+            "error": {
+              "message": "Internal server error",
+              "code": "RATE_LIMIT",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T04:50:00Z",
+            "level": "warn",
+            "endpoint": "/api/users",
+            "statusCode": 441,
+            "responseTime": 4342,
+            "userId": 8230,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "DB_TIMEOUT",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T04:55:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 255,
+            "responseTime": 611,
+            "userId": 3361,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T05:00:00Z",
+            "level": "info",
+            "endpoint": "/api/users",
+            "statusCode": 251,
+            "responseTime": 376,
+            "userId": 8893,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T05:05:00Z",
+            "level": "info",
+            "endpoint": "/api/orders",
+            "statusCode": 236,
+            "responseTime": 3606,
+            "userId": 5891,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T05:10:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 573,
+            "responseTime": 4790,
+            "userId": 7564,
+            "error": {
+              "message": "Resource not found",
+              "code": "NOT_FOUND",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T05:15:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 236,
+            "responseTime": 1567,
+            "userId": 1338,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T05:20:00Z",
+            "level": "warn",
+            "endpoint": "/api/payments",
+            "statusCode": 208,
+            "responseTime": 960,
+            "userId": 8813,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T05:25:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 456,
+            "responseTime": 1555,
+            "userId": 9751,
+            "error": {
+              "message": "Database connection timeout",
+              "code": "INTERNAL",
+              "retryable": false
+            }
+          },
+          {
+            "timestamp": "2026-02-01T05:30:00Z",
+            "level": "error",
+            "endpoint": "/api/auth",
+            "statusCode": 565,
+            "responseTime": 4257,
+            "userId": 1670,
+            "error": {
+              "message": "Internal server error",
+              "code": "RATE_LIMIT",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T05:35:00Z",
+            "level": "info",
+            "endpoint": "/api/products",
+            "statusCode": 256,
+            "responseTime": 4298,
+            "userId": 9090,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T05:40:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 579,
+            "responseTime": 2203,
+            "userId": 3827,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "DB_TIMEOUT",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T05:45:00Z",
+            "level": "error",
+            "endpoint": "/api/payments",
+            "statusCode": 460,
+            "responseTime": 2072,
+            "userId": 6385,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "NOT_FOUND",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T05:50:00Z",
+            "level": "warn",
+            "endpoint": "/api/products",
+            "statusCode": 291,
+            "responseTime": 1274,
+            "userId": 1342,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T05:55:00Z",
+            "level": "warn",
+            "endpoint": "/api/payments",
+            "statusCode": 266,
+            "responseTime": 2263,
+            "userId": 5157,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T06:00:00Z",
+            "level": "warn",
+            "endpoint": "/api/products",
+            "statusCode": 420,
+            "responseTime": 356,
+            "userId": 5225,
+            "error": {
+              "message": "Invalid authentication token",
+              "code": "NOT_FOUND",
+              "retryable": true
+            }
+          },
+          {
+            "timestamp": "2026-02-01T06:05:00Z",
+            "level": "warn",
+            "endpoint": "/api/auth",
+            "statusCode": 279,
+            "responseTime": 728,
+            "userId": 6134,
+            "error": null
+          },
+          {
+            "timestamp": "2026-02-01T06:10:00Z",
+            "level": "warn",
+            "endpoint": "/api/users",
+            "statusCode": 235,
+            "responseTime": 4788,
+            "userId": 2658,
+            "error": null
+          }
+        ]
+      },
+      "variants": {
+        "json": {
+          "type": "json",
+          "pretty": true
+        },
+        "json_compact": {
+          "type": "json",
+          "pretty": false
+        },
+        "yaml": {
+          "type": "yaml"
+        },
+        "toon": {
+          "type": "toon",
+          "delimiter": ","
+        },
+        "xml": {
+          "type": "xml",
+          "rootName": "dataset",
+          "pretty": true
+        },
+        "csv": {
+          "type": "csv",
+          "delimiter": ","
+        },
+        "json_cddl": {
+          "type": "cddl_json",
+          "schema": "; Keyless logs dataset schema (CDDL)\nerror = [\n  message: tstr,\n  code: tstr,\n  retryable: bool,\n]\n\nlog = [\n  timestamp: tstr,\n  level: tstr,\n  endpoint: tstr,\n  statusCode: uint,\n  responseTime: uint,\n  userId: uint,\n  error: error / null,\n]\n\nlogs-dataset = [* log]",
+          "transforms": [
+            {
+              "path": "/logs/*/error",
+              "order": [
+                "message",
+                "code",
+                "retryable"
+              ]
+            },
+            {
+              "path": "/logs/*",
+              "order": [
+                "timestamp",
+                "level",
+                "endpoint",
+                "statusCode",
+                "responseTime",
+                "userId",
+                "error"
+              ]
+            }
+          ],
+          "compact": true,
+          "rootPath": "/logs"
+        }
+      },
+      "questions": [
+        {
+          "id": "level_ts_10",
+          "question": "What is the level for the log entry with timestamp 2026-02-01T00:50:00Z?",
+          "expected": "info",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "endpoint_ts_17",
+          "question": "What is the endpoint for the log entry with timestamp 2026-02-01T01:25:00Z?",
+          "expected": "/api/orders",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "status_ts_33",
+          "question": "What is the statusCode for the log entry with timestamp 2026-02-01T02:45:00Z?",
+          "expected": 284,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "retryable_first_error",
+          "question": "Is error.retryable true for the log entry with timestamp 2026-02-01T00:05:00Z? Answer true or false.",
+          "expected": "false",
+          "scorer": {
+            "type": "exact",
+            "trim": true,
+            "caseInsensitive": true
+          },
+          "tags": [
+            "field",
+            "boolean"
+          ]
+        },
+        {
+          "id": "logs_count",
+          "question": "How many log entries are in the logs dataset?",
+          "expected": 75,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg"
+          ]
+        },
+        {
+          "id": "count_level_error",
+          "question": "How many logs have level \"error\"?",
+          "expected": 17,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg"
+          ]
+        },
+        {
+          "id": "count_status_ge_500",
+          "question": "How many logs have statusCode >= 500?",
+          "expected": 14,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        },
+        {
+          "id": "count_orders_status_ge_400",
+          "question": "How many logs to endpoint \"/api/orders\" have statusCode >= 400?",
+          "expected": 3,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "filter",
+            "agg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nested-config",
+      "input": {
+        "environment": "staging",
+        "version": "3.3.4",
+        "database": {
+          "host": "db.example.com",
+          "port": 5432,
+          "name": "appdb",
+          "pool": {
+            "min": 2,
+            "max": 20,
+            "idleTimeout": 30000
+          },
+          "replicas": [
+            {
+              "host": "replica-1.db.example.com",
+              "port": 5432,
+              "priority": 1
+            },
+            {
+              "host": "replica-2.db.example.com",
+              "port": 5432,
+              "priority": 2
+            },
+            {
+              "host": "replica-3.db.example.com",
+              "port": 5432,
+              "priority": 3
+            }
+          ]
+        },
+        "features": {
+          "darkMode": {
+            "enabled": true,
+            "rollout": 70,
+            "variants": [
+              {
+                "name": "default",
+                "weight": 70,
+                "config": {
+                  "theme": "dark",
+                  "animations": true
+                }
+              },
+              {
+                "name": "minimal",
+                "weight": 30,
+                "config": {
+                  "theme": "dark",
+                  "animations": false
+                }
+              }
+            ]
+          },
+          "analytics": {
+            "enabled": true,
+            "rollout": 100,
+            "variants": [
+              {
+                "name": "full",
+                "weight": 100,
+                "config": {
+                  "tracking": "all",
+                  "sampling": 1
+                }
+              }
+            ]
+          }
+        },
+        "authentication": {
+          "providers": [
+            {
+              "name": "oauth2",
+              "clientId": "11111111-1111-1111-1111-111111111111",
+              "scopes": [
+                "read",
+                "write",
+                "admin"
+              ],
+              "config": {
+                "authUrl": "https://auth.example.com/oauth2/authorize",
+                "tokenUrl": "https://auth.example.com/oauth2/token"
+              }
+            },
+            {
+              "name": "saml",
+              "clientId": "22222222-2222-2222-2222-222222222222",
+              "scopes": [
+                "read"
+              ],
+              "config": {
+                "entryPoint": "https://sso.example.com/saml/entry",
+                "cert": "ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789"
+              }
+            }
+          ],
+          "session": {
+            "secret": "supersecretsecretsecretsecretsecret12",
+            "duration": 86400,
+            "refreshThreshold": 3600
+          }
+        },
+        "permissions": {
+          "roles": {
+            "admin": {
+              "permissions": [
+                "read",
+                "write",
+                "delete",
+                "manage_users",
+                "manage_roles"
+              ],
+              "inherits": []
+            },
+            "editor": {
+              "permissions": [
+                "read",
+                "write"
+              ],
+              "inherits": [
+                "viewer"
+              ]
+            },
+            "viewer": {
+              "permissions": [
+                "read"
+              ],
+              "inherits": []
+            }
+          },
+          "groups": {
+            "engineering": {
+              "members": [
+                "eng1@example.com",
+                "eng2@example.com",
+                "eng3@example.com",
+                "eng4@example.com",
+                "eng5@example.com"
+              ],
+              "roles": [
+                "admin",
+                "editor"
+              ]
+            },
+            "support": {
+              "members": [
+                "sup1@example.com",
+                "sup2@example.com",
+                "sup3@example.com"
+              ],
+              "roles": [
+                "viewer"
+              ]
+            }
+          }
+        }
+      },
+      "variants": {
+        "json": {
+          "type": "json",
+          "pretty": true
+        },
+        "json_compact": {
+          "type": "json",
+          "pretty": false
+        },
+        "yaml": {
+          "type": "yaml"
+        },
+        "toon": {
+          "type": "toon",
+          "delimiter": ","
+        },
+        "xml": {
+          "type": "xml",
+          "rootName": "dataset",
+          "pretty": true
+        },
+        "csv": {
+          "type": "csv",
+          "delimiter": ","
+        },
+        "json_cddl": {
+          "type": "cddl_json",
+          "schema": "; Keyless nested config schema (CDDL)\nnested-config = [\n  environment: tstr,\n  version: tstr,\n  database: any,\n  features: any,\n  authentication: any,\n  permissions: any,\n]",
+          "transforms": [
+            {
+              "path": "/",
+              "order": [
+                "environment",
+                "version",
+                "database",
+                "features",
+                "authentication",
+                "permissions"
+              ]
+            }
+          ],
+          "compact": true
+        }
+      },
+      "questions": [
+        {
+          "id": "env",
+          "question": "What is the environment?",
+          "expected": "staging",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "db_host",
+          "question": "What is the database host?",
+          "expected": "db.example.com",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "db_pool_max",
+          "question": "What is the database pool max?",
+          "expected": 20,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "replica_count",
+          "question": "How many database replicas are configured?",
+          "expected": 3,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "field",
+            "number"
+          ]
+        },
+        {
+          "id": "provider2_name",
+          "question": "What is the name of authentication provider #2 (second item in providers array)?",
+          "expected": "saml",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "oauth2_first_scope",
+          "question": "What is the first scope for the oauth2 authentication provider?",
+          "expected": "read",
+          "scorer": {
+            "type": "exact",
+            "trim": true
+          },
+          "tags": [
+            "field"
+          ]
+        },
+        {
+          "id": "darkmode_enabled",
+          "question": "Is the darkMode feature enabled? Answer true or false.",
+          "expected": "true",
+          "scorer": {
+            "type": "exact",
+            "trim": true,
+            "caseInsensitive": true
+          },
+          "tags": [
+            "field",
+            "boolean"
+          ]
+        },
+        {
+          "id": "admin_perm_count",
+          "question": "How many permissions does the admin role have?",
+          "expected": 5,
+          "scorer": {
+            "type": "number",
+            "tolerance": 0
+          },
+          "tags": [
+            "agg",
+            "number"
+          ]
+        }
+      ]
+    }
+  ],
+  "formatPreambles": {
+    "json_cddl": "Keyless JSON + CDDL indexing: arrays only (no object keys). Field meaning is fixed by array position from the CDDL schema. Relationships and complex values may use indexes, tags, enums, or bitmasks.",
+    "toon": "TOON format: read fixed field order in rows/blocks; parse values by position and labels shown in the rendered structure."
+  }
+}

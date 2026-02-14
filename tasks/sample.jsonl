@@ -1,0 +1,2 @@
+{"id": "math.addition", "prompt": "Compute 13 + 29. Reply with only the number.", "expected": 42, "scorer": {"type": "number", "tolerance": 0}, "tags": ["sanity"]}
+{"id": "string.exact", "prompt": "Reply with exactly: DENO", "expected": "DENO", "scorer": {"type": "exact", "trim": true}, "tags": ["sanity"]}
