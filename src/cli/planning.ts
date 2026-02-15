@@ -82,6 +82,7 @@ export async function buildExecutionPlan(opts: {
   suitePath: string;
   tasksPath: string;
   format?: string;
+  taskIds?: string[];
   commandName: "bench" | "estimate";
 }): Promise<ExecutionPlan> {
   const models = await readModelsFile(opts.modelsPath);
@@ -104,6 +105,30 @@ export async function buildExecutionPlan(opts: {
       );
     }
     tasks = filtered;
+  }
+
+  const wantedTaskIds = (opts.taskIds ?? []).map((s) => s.trim()).filter((s) => s.length > 0);
+  if (wantedTaskIds.length > 0) {
+    const byId = new Map(tasks.map((t) => [t.id, t]));
+    const selected: Task[] = [];
+    const missing: string[] = [];
+    const seen = new Set<string>();
+    for (const id of wantedTaskIds) {
+      if (seen.has(id)) continue;
+      seen.add(id);
+      const t = byId.get(id);
+      if (!t) {
+        missing.push(id);
+      } else {
+        selected.push(t);
+      }
+    }
+    if (missing.length > 0) {
+      const sample = missing.slice(0, 8).join(", ");
+      const suffix = missing.length > 8 ? ` ... (+${missing.length - 8} more)` : "";
+      throw new CliUsageError(`Requested task IDs not found: ${sample}${suffix}`);
+    }
+    tasks = selected;
   }
 
   return {

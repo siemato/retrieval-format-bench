@@ -11,6 +11,7 @@ Commands:
 Examples:
   deno task bench -- --models configs/models.json --suite suites/formats.suite.json --out runs
   deno task bench -- --models configs/models.json --suite suites/formats.suite.json --format json_cddl --out runs --execute
+  deno task bench -- --models configs/models.json --suite suites/formats.suite.json --task-ids-file tasks/missing.txt --out runs --execute
   deno task report -- --run runs/latest.json --out runs
   deno task estimate -- --models configs/models.json --suite suites/formats.suite.json --output-tokens 16
 
@@ -19,6 +20,8 @@ Flags for bench:
   --suite <path>         Suite JSON file (required if --tasks is not used)
   --tasks <path>         Tasks JSONL file (required if --suite is not used)
   --format <name>        Run only one format/variant (e.g. json, yaml, csv, json_cddl)
+  --task-ids <csv>       Run only selected task IDs (comma-separated)
+  --task-ids-file <path> Run only selected task IDs from file (one per line; # comments allowed)
   --out <dir>            Output directory for run JSON (default: runs)
   --concurrency <n>      Parallel requests (default: 4)
   --temperature <n>      Temperature (optional)

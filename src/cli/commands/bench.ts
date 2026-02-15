@@ -15,6 +15,8 @@ const BENCH_ALLOWED = new Set([
   "models",
   "suite",
   "tasks",
+  "task-ids",
+  "task-ids-file",
   "out",
   "concurrency",
   "temperature",
@@ -35,6 +37,8 @@ export async function cmdBench(args: string[]) {
         "models",
         "suite",
         "tasks",
+        "task-ids",
+        "task-ids-file",
         "out",
         "concurrency",
         "temperature",
@@ -63,11 +67,27 @@ export async function cmdBench(args: string[]) {
     return;
   }
 
+  const taskIdsRaw = String(parsed["task-ids"] ?? "").trim();
+  const taskIdsFromFlag = taskIdsRaw
+    ? taskIdsRaw.split(",").map((s) => s.trim()).filter((s) => s.length > 0)
+    : [];
+  const taskIdsFile = String(parsed["task-ids-file"] ?? "").trim();
+  let taskIdsFromFile: string[] = [];
+  if (taskIdsFile) {
+    const txt = await Deno.readTextFile(taskIdsFile);
+    taskIdsFromFile = txt
+      .split(/\r?\n/)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0 && !s.startsWith("#"));
+  }
+  const taskIds = [...taskIdsFromFlag, ...taskIdsFromFile];
+
   const plan = await buildExecutionPlan({
     modelsPath: String(parsed.models),
     suitePath: String(parsed.suite ?? ""),
     tasksPath: String(parsed.tasks ?? ""),
     format: String(parsed.format ?? ""),
+    taskIds,
     commandName: "bench",
   });
 

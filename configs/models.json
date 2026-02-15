@@ -23,6 +23,10 @@
     {
       "id": "qwen/qwen3-max-thinking",
       "label": "Qwen3 Max Thinking"
+    },
+    {
+      "id": "moonshotai/kimi-k2-thinking",
+      "label": "Kimi K2 Thinking"
     }
   ]
 }
